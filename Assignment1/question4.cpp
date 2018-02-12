@@ -7,6 +7,7 @@
 #include <math.h>
 #include <limits>
 #include <cfloat>
+#include <cmath>
 
 using namespace std;
 
@@ -91,19 +92,18 @@ void normalize()
 
 void initialize()
 {
-	P0 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P1 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    P2 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P3 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P4 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); 
+	P0 = 10000;
+	P1 = 10000;
+	P2 = P3 = P4 = 100; 
 }
 
-void gradientDescentReg()
+void gradientDescentSq()
 {
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
 	vector <double> error(TRAININGSET.size());
 	int count = 0;
+	//while(count --)
 	while(converge >= 0.01)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
@@ -117,9 +117,8 @@ void gradientDescentReg()
 		Jsum = 0;
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
+			Jsum += (error[i]/(2*TRAININGSET.size())) * error[i];
 		}
-		Jsum += (lambda * (P1 * P1 + P2 * P2 + P3 * P3 + P4 * P4)) / (2*TRAININGSET.size());
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
@@ -140,24 +139,24 @@ void gradientDescentReg()
 		}
 		
 		P0 = P0 - (alpha * sum0);
-		P1 = P1 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum1);
-		P2 = P2 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum2);
-		P3 = P3 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum3);
-		P4 = P4 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum4);
+		P1 = P1 - (alpha * sum1);
+		P2 = P2 - (alpha * sum2);
+		P3 = P3 - (alpha * sum3);
+		P4 = P4 - (alpha * sum4);
 
 		count ++;
 	}
 	cout << count << endl;
 }
 
-void gradientDescent()
+void gradientDescentCube()
 {
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
 	vector <double> error(TRAININGSET.size());
-	int count = 0;
-	while(converge >= 0.01)
-	//while(count--)
+	int count = 10;
+	//while(converge >= 0.01)
+	while(count --)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
@@ -170,25 +169,28 @@ void gradientDescent()
 		Jsum = 0;
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
+			Jsum += abs(error[i] * error[i] * error[i])/(2*TRAININGSET.size());
 		}
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
 		cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
+		int sign;
 
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			sum0 += error[i]/ TRAININGSET.size();
-			sum1 += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
-			sum2 += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
-			sum3 += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
-			sum4 += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
+			if(error[i] >= 0) sign = 1;
+			else sign = -1;
+			sum0 += (3  * sign * error[i] * error[i])/ (2 *TRAININGSET.size());
+			sum1 += (3  * sign * error[i] * error[i] * (TRAININGSET[i].sqft)) / (2 *TRAININGSET.size());
+			sum2 += (3  * sign * error[i] * error[i] * (TRAININGSET[i].floors)) / (2 *TRAININGSET.size());
+			sum3 += (3  * sign * error[i] * error[i] * (TRAININGSET[i].bedrooms)) / (2 *TRAININGSET.size());
+			sum4 += (3  * sign * error[i] * error[i] * (TRAININGSET[i].bathrooms)) / (2 *TRAININGSET.size());
 		}
 		
 		P0 = P0 - (alpha * sum0);
@@ -196,6 +198,62 @@ void gradientDescent()
 		P2 = P2 - (alpha * sum2);
 		P3 = P3 - (alpha * sum3);
 		P4 = P4 - (alpha * sum4);
+
+		//count ++;
+	}
+	cout << count << endl;
+}
+
+void gradientDescentAbs()
+{
+	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
+	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
+	vector <double> error(TRAININGSET.size());
+	int count = 0;
+	while(converge >= 0.0001)
+	//while(count --)
+	{
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			h = hypothesisFuncion(TRAININGSET[i]);
+			y = TRAININGSET[i].price;
+			error[i] = h - y;
+		}
+
+
+		Jsum = 0;
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			Jsum += (abs(error[i]))/(2*TRAININGSET.size());
+		}
+
+		newJ =  Jsum ;
+		converge = oldJ - newJ;
+		//cout << "Jsum : " << Jsum << endl;
+		//cout << "oldJ : " << oldJ << endl;
+		cout << "converge : " << converge << endl;
+		oldJ = newJ;
+
+		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
+		int sign;
+
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			if(error[i] >= 0)sign = 1;
+			else sign = -1;
+
+			sum0 += sign;
+			sum1 += sign * (TRAININGSET[i].sqft);
+			sum2 += sign * (TRAININGSET[i].floors);
+			sum3 += sign * (TRAININGSET[i].bedrooms);
+			sum4 += sign * (TRAININGSET[i].bathrooms);
+		}
+		
+		P0 = P0 - (alpha * sum0)/(2 * TRAININGSET.size());
+		P1 = P1 - (alpha * sum1)/(2 * TRAININGSET.size());
+		P2 = P2 - (alpha * sum2)/(2 * TRAININGSET.size());
+		P3 = P3 - (alpha * sum3)/(2 * TRAININGSET.size());
+		P4 = P4 - (alpha * sum4)/(2 * TRAININGSET.size());
 
 		count ++;
 	}
@@ -249,9 +307,7 @@ int main()
 	}
 
 	initialize();
-	
-
-	gradientDescent();
+	gradientDescentSq();
 
 	// for(i = 0; i < TRAININGSET.size(); i++)
 	// {

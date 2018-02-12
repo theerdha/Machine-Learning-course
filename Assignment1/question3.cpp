@@ -51,11 +51,12 @@ vector<double> parse(string s)
 	return parsed;
 }
 
-double hypothesisFuncion(data d)
+double hypothesisFuncion(data d,int func)
 {
-	return P0 + P1 * d.sqft + P2 * d.floors + P3 * d.bedrooms + P4 * d.bathrooms;
+	if(func == 1)return P0 + P1 * d.sqft  + P2 * d.floors  + P3 * d.bedrooms + P4 * d.bathrooms;
+	if(func == 2)return P0 + P1 * d.sqft * d.sqft + P2 * d.floors * d.floors + P3 * d.bedrooms * d.bedrooms  * d.bedrooms + P4 * d.bathrooms * d.bathrooms * d.bathrooms;
+	if(func ==3)return P0 + P1 * d.sqft * d.sqft * d.sqft + P2 * d.floors * d.floors * d.floors + P3 * d.bedrooms * d.bedrooms + P4 * d.bathrooms * d.bathrooms;
 }
-
 void normalize()
 {
 	double sqftmean = 0,sqftmax = -1,floormean = 0,floormax = -1,bedmean = 0,bedmax = -1,bathmean = 0,bathmax = -1;
@@ -91,14 +92,11 @@ void normalize()
 
 void initialize()
 {
-	P0 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P1 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    P2 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P3 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-	P4 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); 
+	P0 = 0;
+	P1 = P2 = P3 = P4 = 0; 
 }
 
-void gradientDescentReg()
+void gradientDescent(int func)
 {
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
@@ -108,7 +106,7 @@ void gradientDescentReg()
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			h = hypothesisFuncion(TRAININGSET[i]);
+			h = hypothesisFuncion(TRAININGSET[i],func);
 			y = TRAININGSET[i].price;
 			error[i] = h - y;
 		}
@@ -119,65 +117,12 @@ void gradientDescentReg()
 		{
 			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
 		}
-		Jsum += (lambda * (P1 * P1 + P2 * P2 + P3 * P3 + P4 * P4)) / (2*TRAININGSET.size());
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
-		oldJ = newJ;
-
-		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
-
-		for(int i = 0; i < TRAININGSET.size(); i++)
-		{
-			sum0 += error[i]/ TRAININGSET.size();
-			sum1 += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
-			sum2 += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
-			sum3 += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
-			sum4 += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
-		}
-		
-		P0 = P0 - (alpha * sum0);
-		P1 = P1 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum1);
-		P2 = P2 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum2);
-		P3 = P3 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum3);
-		P4 = P4 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum4);
-
-		count ++;
-	}
-	cout << count << endl;
-}
-
-void gradientDescent()
-{
-	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
-	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
-	vector <double> error(TRAININGSET.size());
-	int count = 0;
-	while(converge >= 0.01)
-	//while(count--)
-	{
-		for(int i = 0; i < TRAININGSET.size(); i++)
-		{
-			h = hypothesisFuncion(TRAININGSET[i]);
-			y = TRAININGSET[i].price;
-			error[i] = h - y;
-		}
-
-
-		Jsum = 0;
-		for(int i = 0; i < TRAININGSET.size(); i++)
-		{
-			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
-		}
-
-		newJ =  Jsum ;
-		converge = oldJ - newJ;
-		cout << "Jsum : " << Jsum << endl;
-		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
@@ -202,12 +147,12 @@ void gradientDescent()
 	cout << count << endl;
 }
 
-double errorCalc()
+double errorCalc(int func)
 {
 	double tot = 0;
 	for(int i = 0; i < TESTSET.size(); i++)
 	{
-		tot += (TESTSET[i].price - hypothesisFuncion(TESTSET[i])) * (TESTSET[i].price - hypothesisFuncion(TESTSET[i]));
+		tot += (TESTSET[i].price - hypothesisFuncion(TESTSET[i],func)) * (TESTSET[i].price - hypothesisFuncion(TESTSET[i],func));
 	}
 	tot = tot/TESTSET.size();
 	return sqrt(tot);
@@ -249,9 +194,7 @@ int main()
 	}
 
 	initialize();
-	
-
-	gradientDescent();
+	gradientDescent(1);
 
 	// for(i = 0; i < TRAININGSET.size(); i++)
 	// {
@@ -262,10 +205,34 @@ int main()
 
 	for(int j = 0; j < TESTSET.size(); j++)
 	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],1) << endl; 
 	}
 	cout << endl;
-	cout << errorCalc() << endl;
+	cout << "error for linear case is : " << errorCalc(1) << endl;
+
+	initialize();
+	gradientDescent(2);
+
+	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+
+	for(int j = 0; j < TESTSET.size(); j++)
+	{
+		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],2) << endl; 
+	}
+	cout << endl;
+	cout << "error for quadratic case is : " << errorCalc(2) << endl;
+
+	initialize();
+	gradientDescent(3);
+
+	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+
+	for(int j = 0; j < TESTSET.size(); j++)
+	{
+		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],3) << endl; 
+	}
+	cout << endl;
+	cout << "error for cubic case is : " << errorCalc(3) << endl;
 
 
 	return 0;
