@@ -25,7 +25,7 @@ typedef struct DATA
 vector<data> DATASET;
 vector<data> TRAININGSET;
 vector<data> TESTSET;
-double P0,P1,P2,P3,P4;
+vector<double> Params;
 
 vector<double> parse(string s)
 {
@@ -53,53 +53,99 @@ vector<double> parse(string s)
 
 double hypothesisFuncion(data d,int func)
 {
-	if(func == 1)return P0 + P1 * d.sqft  + P2 * d.floors  + P3 * d.bedrooms + P4 * d.bathrooms;
-	if(func == 2)return P0 + P1 * d.sqft * d.sqft + P2 * d.floors * d.floors + P3 * d.bedrooms * d.bedrooms  * d.bedrooms + P4 * d.bathrooms * d.bathrooms * d.bathrooms;
-	if(func ==3)return P0 + P1 * d.sqft * d.sqft * d.sqft + P2 * d.floors * d.floors * d.floors + P3 * d.bedrooms * d.bedrooms + P4 * d.bathrooms * d.bathrooms;
+	if(func == 1)
+		return Params[0] + Params[1] * d.sqft  + Params[2] * d.floors  + Params[3] * d.bedrooms + Params[4] * d.bathrooms;
+	if(func == 2)
+		return  hypothesisFuncion(d,1)+ Params[5] * (pow(d.sqft,2)) + Params[6] * (pow(d.floors,2)) + Params[7] * (pow(d.bedrooms,2))  + Params[8]* (pow(d.bathrooms,2));
+	if(func ==3)
+		return  hypothesisFuncion(d,2)+ Params[9] * (pow(d.sqft,3)) + Params[10] * (pow(d.floors,3)) + Params[11] * (pow(d.bedrooms,3))  + Params[12]* (pow(d.bathrooms,3));
 }
+double deviation (vector<double> x, int mean)
+{
+	double deviation;
+	double sum2;
+
+	for ( int i = 0; i < x.size(); i++ )
+	{
+		sum2 += ((x[i]-mean) * (x[i]-mean)) ;
+	}
+	deviation= sqrt(sum2/(x.size()));
+	return deviation;
+} 
+
+
 void normalize()
 {
 	double sqftmean = 0,sqftmax = -1,floormean = 0,floormax = -1,bedmean = 0,bedmax = -1,bathmean = 0,bathmax = -1;
-	for(int i = 0; i < DATASET.size(); i++)
+	double devsqft,devfloors,devbed,devbath;
+	for(int i = 0; i < TRAININGSET.size(); i++)
 	{
-		sqftmean += DATASET[i].sqft;
-		floormean += DATASET[i].floors;
-		bedmean += DATASET[i].bedrooms;
-		bathmean += DATASET[i].bathrooms;
+		sqftmean += TRAININGSET[i].sqft;
+		floormean += TRAININGSET[i].floors;
+		bedmean += TRAININGSET[i].bedrooms;
+		bathmean += TRAININGSET[i].bathrooms;
 	}
-	sqftmean /= DATASET.size();
-	floormean /= DATASET.size();
-	bedmean /= DATASET.size();
-	bathmean /= DATASET.size();
+	sqftmean /= TRAININGSET.size();
+	floormean /= TRAININGSET.size();
+	bedmean /= TRAININGSET.size();
+	bathmean /= TRAININGSET.size();
+
+	for(int i = 0; i < TRAININGSET.size(); i++)
+	{
+		if(TRAININGSET[i].sqft > sqftmax) sqftmax = TRAININGSET[i].sqft;
+		if(TRAININGSET[i].floors > floormax) floormax = TRAININGSET[i].floors;
+		if(TRAININGSET[i].bedrooms > bedmax) bedmax = TRAININGSET[i].bedrooms;
+		if(TRAININGSET[i].bathrooms > bathmax) bathmax = TRAININGSET[i].bathrooms;
+	}
+
+	vector<double> x;
+	for(int i = 0; i < TRAININGSET.size(); i++)
+	{
+		x.push_back(TRAININGSET[i].sqft);
+	}
+	devsqft = deviation(x,sqftmean); x.clear();
+
+	for(int i = 0; i < TRAININGSET.size(); i++)
+	{
+		x.push_back(TRAININGSET[i].floors);
+	}
+	devfloors = deviation(x,floormean); x.clear();
+
+	for(int i = 0; i < TRAININGSET.size(); i++)
+	{
+		x.push_back(TRAININGSET[i].bedrooms);
+	}
+	devbed = deviation(x,bedmean); x.clear();
+
+	for(int i = 0; i < TRAININGSET.size(); i++)
+	{
+		x.push_back(TRAININGSET[i].bathrooms);
+	}
+	devbath = deviation(x,bathmean); x.clear();
+
 
 	for(int i = 0; i < DATASET.size(); i++)
 	{
-		if(DATASET[i].sqft > sqftmax) sqftmax = DATASET[i].sqft;
-		if(DATASET[i].floors > floormax) floormax = DATASET[i].floors;
-		if(DATASET[i].bedrooms > bedmax) bedmax = DATASET[i].bedrooms;
-		if(DATASET[i].bathrooms > bathmax) bathmax = DATASET[i].bathrooms;
-	}
-
-	for(int i = 0; i < DATASET.size(); i++)
-	{
-		DATASET[i].sqft = (DATASET[i].sqft )/sqftmax;
-		DATASET[i].floors = (DATASET[i].floors )/floormax;
-		DATASET[i].bedrooms = (DATASET[i].bedrooms)/bedmax;
-		DATASET[i].bathrooms = (DATASET[i].bathrooms)/bathmax;
+		DATASET[i].sqft = (DATASET[i].sqft - sqftmean)/devsqft;
+		DATASET[i].floors = (DATASET[i].floors - floormean)/devfloors;
+		DATASET[i].bedrooms = (DATASET[i].bedrooms - bedmean)/devbed;
+		DATASET[i].bathrooms = (DATASET[i].bathrooms - bathmean)/devbath;
 	}
 
 }
 
 void initialize()
 {
-	P0 = 0;
-	P1 = P2 = P3 = P4 = 0; 
+	for(int i = 0 ; i < 13;i++)
+	{
+		Params.push_back(static_cast <float> (rand()) / static_cast <float> (RAND_MAX)); 
+	}
 }
 
 void gradientDescent(int func)
 {
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
-	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
+	vector<double> sum;
 	vector <double> error(TRAININGSET.size());
 	int count = 0;
 	while(converge >= 0.01)
@@ -122,26 +168,40 @@ void gradientDescent(int func)
 		converge = oldJ - newJ;
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		//cout << "converge : " << converge << endl;
+		cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
-		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
+		for(int  i = 0; i < 13; i++)
+		{
+			sum.push_back(0);
+		}
 
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			sum0 += error[i]/ TRAININGSET.size();
-			sum1 += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
-			sum2 += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
-			sum3 += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
-			sum4 += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
+			sum[0] += error[i]/ TRAININGSET.size();
+			sum[1] += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
+			sum[2] += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
+			sum[3] += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
+			sum[4] += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
+
+			sum[5] += error[i] * (pow(TRAININGSET[i].sqft,2))/ TRAININGSET.size();
+			sum[6] += error[i] * (pow(TRAININGSET[i].floors,2))/ TRAININGSET.size();
+			sum[7] += error[i] * (pow(TRAININGSET[i].bedrooms,2))/ TRAININGSET.size();
+			sum[8] += error[i] * (pow(TRAININGSET[i].bathrooms,2))/ TRAININGSET.size();
+
+			sum[9] += error[i] * (pow(TRAININGSET[i].sqft,3))/ TRAININGSET.size();
+			sum[10] += error[i] * (pow(TRAININGSET[i].floors,3))/ TRAININGSET.size();
+			sum[11] += error[i] * (pow(TRAININGSET[i].bedrooms,3))/ TRAININGSET.size();
+			sum[12] += error[i] * (pow(TRAININGSET[i].bathrooms,3))/ TRAININGSET.size();
+
 		}
 		
-		P0 = P0 - (alpha * sum0);
-		P1 = P1 - (alpha * sum1);
-		P2 = P2 - (alpha * sum2);
-		P3 = P3 - (alpha * sum3);
-		P4 = P4 - (alpha * sum4);
-
+		for(int  i = 0; i < 13; i++)
+		{
+			Params[i] -= (alpha * sum[i]);
+		}
+		
+		sum.clear();
 		count ++;
 	}
 	cout << count << endl;
@@ -181,7 +241,19 @@ int main()
 	     rows++;
 	}
 	int i;
+	for(i = 0 ; i < 0.8 * rows; i++)
+	{
+		TRAININGSET.push_back(DATASET[i]);
+	}
+
+	for(int j = i; j < DATASET.size(); j++)
+	{
+		TESTSET.push_back(DATASET[j]);
+		//TESTSET[TESTSET.size() - 1].price = 0;
+	}
 	normalize();
+	TRAININGSET.clear();
+	TESTSET.clear();
 	for(i = 0 ; i < 0.8 * rows; i++)
 	{
 		TRAININGSET.push_back(DATASET[i]);
@@ -201,7 +273,11 @@ int main()
 	// 	cout << TRAININGSET[i].sqft << " " << TRAININGSET[i].floors << " " << TRAININGSET[i].bedrooms<< " " << TRAININGSET[i].bathrooms << " " << TRAININGSET[i].price << endl;
 	// }
 
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+	for(int  i = 0; i < 5; i++)
+	{
+		cout << Params[i] << " ";
+	}
+	cout << endl;
 
 	for(int j = 0; j < TESTSET.size(); j++)
 	{
@@ -209,11 +285,16 @@ int main()
 	}
 	cout << endl;
 	cout << "error for linear case is : " << errorCalc(1) << endl;
+	Params.clear();
 
 	initialize();
 	gradientDescent(2);
 
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+	for(int  i = 0; i < 9; i++)
+	{
+		cout << Params[i] << " ";
+	}
+	cout << endl;
 
 	for(int j = 0; j < TESTSET.size(); j++)
 	{
@@ -221,11 +302,16 @@ int main()
 	}
 	cout << endl;
 	cout << "error for quadratic case is : " << errorCalc(2) << endl;
+	Params.clear();
 
 	initialize();
 	gradientDescent(3);
 
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+	for(int  i = 0; i < 13; i++)
+	{
+		cout << Params[i] << " ";
+	}
+	cout << endl;
 
 	for(int j = 0; j < TESTSET.size(); j++)
 	{
@@ -233,6 +319,7 @@ int main()
 	}
 	cout << endl;
 	cout << "error for cubic case is : " << errorCalc(3) << endl;
+	Params.clear();
 
 
 	return 0;
