@@ -10,9 +10,10 @@
 
 using namespace std;
 
-#define alphacube 0.0000007 //for cubic case
-#define alpha 0.008
+//#define alphacube 0.0000007 //for cubic case
+//#define alpha 0.008
 #define lambda 5
+double alpha;
 
 typedef struct DATA
 {
@@ -145,9 +146,9 @@ void gradientDescentCube()
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
 	vector <double> error(TRAININGSET.size());
-	int count = 0;
-	while(converge >= 0.01)
-	//while(count --)
+	int count = 1;
+	//while(converge >= 0.01)
+	while(count ++)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
@@ -165,9 +166,13 @@ void gradientDescentCube()
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
-		//cout << "Jsum : " << Jsum << endl;
-		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		// if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 10000)
+		// {
+		// 	cout << "error after " << count << " iterations : " << Jsum << "   ";
+		// 	cout << "convergence : " << converge << endl;
+		// }
+		cout << "error after " << count << " iterations : " << Jsum << "   ";
+		cout << "convergence : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
@@ -184,15 +189,15 @@ void gradientDescentCube()
 			sum4 += (3  * sign * error[i] * error[i] * (TRAININGSET[i].bathrooms));
 		}
 		
-		P0 = P0 - (alphacube * sum0)/ (2 *TRAININGSET.size());
-		P1 = P1 - (alphacube * sum1)/ (2 *TRAININGSET.size());
-		P2 = P2 - (alphacube * sum2)/ (2 *TRAININGSET.size());
-		P3 = P3 - (alphacube * sum3)/ (2 *TRAININGSET.size());
-		P4 = P4 - (alphacube * sum4)/ (2 *TRAININGSET.size());
+		P0 = P0 - (alpha * sum0)/ (2 *TRAININGSET.size());
+		P1 = P1 - (alpha * sum1)/ (2 *TRAININGSET.size());
+		P2 = P2 - (alpha * sum2)/ (2 *TRAININGSET.size());
+		P3 = P3 - (alpha * sum3)/ (2 *TRAININGSET.size());
+		P4 = P4 - (alpha * sum4)/ (2 *TRAININGSET.size());
 
-		count ++;
+		if(count == 5)break;
 	}
-	cout << count << endl;
+	//cout << count << endl;
 }
 
 void gradientDescentAbs()
@@ -200,9 +205,9 @@ void gradientDescentAbs()
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
 	vector <double> error(TRAININGSET.size());
-	int count = 0;
-	while(converge >= 0.0001)
-	//while(count --)
+	int count = 1;
+	//while(converge >= 0.0001)
+	while(count ++)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
@@ -220,9 +225,14 @@ void gradientDescentAbs()
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
-		//cout << "Jsum : " << Jsum << endl;
-		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 10000)
+		if(count % 100 == 0)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			cout << "convergence : " << converge << endl;
+		}
+		// cout << "error after " << count << " iterations : " << Jsum << "   ";
+		// cout << "convergence : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
@@ -246,9 +256,10 @@ void gradientDescentAbs()
 		P3 = P3 - (alpha * sum3);
 		P4 = P4 - (alpha * sum4);
 
-		count ++;
+		if(count == 1000) break;
+		//count ++;
 	}
-	cout << count << endl;
+	//cout << count << endl;
 }
 
 void gradientDescent()
@@ -256,9 +267,9 @@ void gradientDescent()
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
 	vector <double> error(TRAININGSET.size());
-	int count = 0;
-	while(converge >= 0.01)
-	//while(count--)
+	int count = 10000;
+	//while(converge >= 0.01)
+	while(count--)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
@@ -278,7 +289,12 @@ void gradientDescent()
 		converge = oldJ - newJ;
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
+		if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 10000)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			cout << "convergence : " << converge << endl;
+		}
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
@@ -298,7 +314,7 @@ void gradientDescent()
 		P3 = P3 - (alpha * sum3);
 		P4 = P4 - (alpha * sum4);
 
-		count ++;
+		//count --;
 	}
 	cout << count << endl;
 }
@@ -316,15 +332,16 @@ double errorCalc()
 
 int main()
 {
-	ifstream myfile("data.csv");
+	ofstream myfile;
+	ifstream inputfile("data.csv");
 	string value;
 	vector<double> tokens;
 	int rows = 0;
 	data d;
-	getline (myfile, value, '\n' );
-	while(myfile.good())
+	getline (inputfile, value, '\n' );
+	while(inputfile.good())
 	{
-	     getline (myfile, value, '\n' );
+	     getline (inputfile, value, '\n' );
 	     tokens = parse(value);
 	    
 	     d.sqft = tokens[0];
@@ -358,28 +375,88 @@ int main()
 	for(int j = i; j < DATASET.size(); j++)
 	{
 		TESTSET.push_back(DATASET[j]);
-		//TESTSET[TESTSET.size() - 1].price = 0;
 	}
 
-	initialize();
-	
-
-	gradientDescentAbs();
-
-	// for(i = 0; i < TRAININGSET.size(); i++)
-	// {
-	// 	cout << TRAININGSET[i].sqft << " " << TRAININGSET[i].floors << " " << TRAININGSET[i].bedrooms<< " " << TRAININGSET[i].bathrooms << " " << TRAININGSET[i].price << endl;
-	// }
-
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
-
-	for(int j = 0; j < TESTSET.size(); j++)
+	myfile.open("pyinput.txt", std::ios::app);
+	alpha = 0.00007;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+		alpha /= 2;	
+		myfile << alpha << " ";
 	}
-	cout << endl;
-	cout << errorCalc() << endl;
+	myfile << endl;
 
+	alpha = 0.00007;
+	for(int j = 0; j < 10; j++)
+	{
 
+		alpha /= 2;	
+		initialize();
+		gradientDescentCube();
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+		// }
+		cout << "parameters in gradient descent with cubic mean error and alpha " << alpha << " is " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+		cout << "error in gradient decent with cubic mean error and alpha " << alpha  << " is " << errorCalc() << endl;
+		myfile << errorCalc() << " ";
+		cout << endl;
+		
+	}
+	myfile << "\n";
+
+	alpha = 0.4;
+	for(int j = 0; j < 10; j++)
+	{
+		alpha /= 2;	
+		myfile << alpha << " ";
+	}
+	myfile << endl;
+	alpha = 0.4;
+	for(int j = 0; j < 10; j++)
+	{
+
+		alpha /= 2;	
+		initialize();
+		gradientDescentAbs();
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+		// }
+		cout << "parameters in gradient descent with Abs mean error and alpha " << alpha << " is " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+		cout << "error in gradient decent with Abs mean error alpha " <<  alpha  << " is " << errorCalc() << endl;
+		myfile << errorCalc() << " ";
+		cout << endl;
+		
+	}
+	myfile << "\n";
+
+	alpha = 1;
+	for(int j = 0; j < 10; j++)
+	{
+		alpha /= 2;	
+		myfile << alpha << " ";
+	}
+	myfile << endl;
+	alpha = 1;
+	for(int j = 0; j < 10; j++)
+	{
+		alpha /= 2;	
+		initialize();
+		gradientDescent();
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+		// }
+		cout << "parameters in gradient descent with square mean error and alpha " << alpha << " is " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+		cout << "error in gradient decent with square mean error alpha " <<  alpha  << " is " << errorCalc() << endl;
+		myfile << errorCalc() << " ";
+		cout << endl;
+	}
+	myfile << "\n";
+	myfile.close();
 	return 0;
 }

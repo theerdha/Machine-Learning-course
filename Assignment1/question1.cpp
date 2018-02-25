@@ -11,7 +11,6 @@
 using namespace std;
 
 #define alpha 0.005
-#define lambda 5
 
 typedef struct DATA
 {
@@ -139,7 +138,7 @@ void initialize()
 	P4 = static_cast <float> (rand()) / static_cast <float> (RAND_MAX); 
 }
 
-void gradientDescentReg()
+void gradientDescentReg(double lambda)
 {
 	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
 	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
@@ -159,32 +158,39 @@ void gradientDescentReg()
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
 			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
-		}
-		Jsum += (lambda * (P1 * P1 + P2 * P2 + P3 * P3 + P4 * P4)) / (2*TRAININGSET.size());
+		}	
+		Jsum += (lambda * (P1 * P1 + P2 * P2 + P3 * P3 + P4 * P4));
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
+
+		if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 10000)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			cout << "convergence : " << converge << endl;
+		}
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
 
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
-			sum0 += error[i]/ TRAININGSET.size();
-			sum1 += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
-			sum2 += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
-			sum3 += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
-			sum4 += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
+			sum0 += error[i];
+			sum1 += error[i] * (TRAININGSET[i].sqft);
+			sum2 += error[i] * (TRAININGSET[i].floors);
+			sum3 += error[i] * (TRAININGSET[i].bedrooms);
+			sum4 += error[i] * (TRAININGSET[i].bathrooms);
 		}
 		
-		P0 = P0 - (alpha * sum0);
-		P1 = P1 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum1);
-		P2 = P2 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum2);
-		P3 = P3 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum3);
-		P4 = P4 * (1 - (alpha * lambda/TRAININGSET.size())) - (alpha * sum4);
+		P0 = P0 - (alpha * sum0/ TRAININGSET.size());
+		//cout << "size : " << TRAININGSET.size() << endl;
+		P1 = P1 * (1 - ((alpha * lambda)/TRAININGSET.size())) - (alpha * sum1/ TRAININGSET.size());
+		P2 = P2 * (1 - ((alpha * lambda)/TRAININGSET.size())) - (alpha * sum2/ TRAININGSET.size());
+		P3 = P3 * (1 - ((alpha * lambda)/TRAININGSET.size())) - (alpha * sum3/ TRAININGSET.size());
+		P4 = P4 * (1 - ((alpha * lambda)/TRAININGSET.size())) - (alpha * sum4/ TRAININGSET.size());
 
 		count ++;
 	}
@@ -216,9 +222,14 @@ void gradientDescent()
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
+		if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 10000)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			cout << "convergence : " << converge << endl;
+		}
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
 		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
@@ -256,6 +267,7 @@ double errorCalc()
 
 int main()
 {
+	ofstream outfile;
 	ifstream myfile("data.csv");
 	string value;
 	vector<double> tokens;
@@ -302,24 +314,46 @@ int main()
 	}
 
 	initialize();
-	
-
-	gradientDescentReg();
-
+	gradientDescent();
 	// for(i = 0; i < TRAININGSET.size(); i++)
 	// {
 	// 	cout << TRAININGSET[i].sqft << " " << TRAININGSET[i].floors << " " << TRAININGSET[i].bedrooms<< " " << TRAININGSET[i].bathrooms << " " << TRAININGSET[i].price << endl;
 	// }
 
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+	cout << "parameters in gradient descent" <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
 
-	for(int j = 0; j < TESTSET.size(); j++)
-	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
-	}
+	// for(int j = 0; j < TESTSET.size(); j++)
+	// {
+	// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+	// }
+	
+	cout << "error in gradient descent is " << errorCalc() << endl;
 	cout << endl;
-	cout << errorCalc() << endl;
+	cout << endl;
 
+	double lambda = 0;
+	outfile.open("pyinput.txt", std::ios::app);
+	for(int  i = 0; i < 30 ; i++)
+	{
+		outfile << lambda << " ";
+		lambda += 0.1;
+	}
+	outfile << endl;
 
+	lambda = 0;
+	for(int  i = 0; i < 30 ; i++)
+	{
+		initialize();
+		gradientDescentReg(lambda);
+		cout << "parameters in gradient descent with reg param " << lambda << " is " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+		cout << "error in gradient decent with reg param " <<  lambda << " is " << errorCalc() << endl;
+		outfile << errorCalc() << " ";
+		cout << endl;
+		cout << endl;
+		lambda += 0.1;
+	}
+
+	outfile << endl;
+	outfile.close();
 	return 0;
 }

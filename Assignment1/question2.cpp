@@ -332,17 +332,82 @@ double errorCalc()
 	return sqrt(tot);
 }
 
+void gradientDescent()
+{
+	ofstream myfile;
+	myfile.open("pyinput.txt", std::ios_base::app);
+	myfile << "100 200 500 1000 1500 2000 5000 6500" << endl;
+	//myfile.close();
+	double h,y,newJ,oldJ = DBL_MAX,Jsum,converge = 1000;
+	double sum0 = 0,sum1 = 0,sum2 = 0,sum3 = 0,sum4 = 0;
+	vector <double> error(TRAININGSET.size());
+	int count = 0;
+	while(converge >= 0.01)
+	//while(count--)
+	{
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			h = hypothesisFuncion(TRAININGSET[i]);
+			y = TRAININGSET[i].price;
+			error[i] = h - y;
+		}
+
+
+		Jsum = 0;
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			Jsum += (error[i] * error[i])/(2*TRAININGSET.size());
+		}
+
+		newJ =  Jsum ;
+		converge = oldJ - newJ;
+		if(count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count == 6500)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			myfile << errorCalc() << " ";
+			cout << "convergence : " << converge << endl;
+		}
+		//cout << "Jsum : " << Jsum << endl;
+		//cout << "oldJ : " << oldJ << endl;
+		//cout << "converge : " << converge << endl;
+		oldJ = newJ;
+
+		sum0 = 0;sum1 = 0;sum2 = 0;sum3 = 0;sum4 = 0;
+
+		for(int i = 0; i < TRAININGSET.size(); i++)
+		{
+			sum0 += error[i]/ TRAININGSET.size();
+			sum1 += error[i] * (TRAININGSET[i].sqft)/ TRAININGSET.size();
+			sum2 += error[i] * (TRAININGSET[i].floors)/ TRAININGSET.size();
+			sum3 += error[i] * (TRAININGSET[i].bedrooms)/ TRAININGSET.size();
+			sum4 += error[i] * (TRAININGSET[i].bathrooms)/ TRAININGSET.size();
+		}
+		
+		P0 = P0 - (alpha * sum0);
+		P1 = P1 - (alpha * sum1);
+		P2 = P2 - (alpha * sum2);
+		P3 = P3 - (alpha * sum3);
+		P4 = P4 - (alpha * sum4);
+
+		count ++;
+	}
+	cout << "Number of epochs : " << count << endl;
+	myfile << "\n";
+	myfile.close();
+}
+
+
 int main()
 {
-	ifstream myfile("data.csv");
+	ifstream inputfile("data.csv");
 	string value;
 	vector<double> tokens;
 	int rows = 0;
 	data d;
-	getline (myfile, value, '\n' );
-	while(myfile.good())
+	getline (inputfile, value, '\n' );
+	while(inputfile.good())
 	{
-	     getline (myfile, value, '\n' );
+	     getline (inputfile, value, '\n' );
 	     tokens = parse(value);
 	    
 	     d.sqft = tokens[0];
@@ -380,23 +445,31 @@ int main()
 	}
 
 	initialize();
-	
-
 	gradientDescentIRLS();
+	cout << "parameters in IRLS are " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
 
-	// for(i = 0; i < TRAININGSET.size(); i++)
+	// for(int j = 0; j < TESTSET.size(); j++)
 	// {
-	// 	cout << TRAININGSET[i].sqft << " " << TRAININGSET[i].floors << " " << TRAININGSET[i].bedrooms<< " " << TRAININGSET[i].bathrooms << " " << TRAININGSET[i].price << endl;
+	// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
 	// }
-
-	cout << P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
-
-	for(int j = 0; j < TESTSET.size(); j++)
-	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
-	}
+	
+	cout << "error in IRLS is " << errorCalc() << endl;
 	cout << endl;
-	cout << errorCalc() << endl;
+	cout << endl;
+
+	initialize();
+	gradientDescent();
+	cout << "parameters in gradient descent are " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
+
+	// for(int j = 0; j < TESTSET.size(); j++)
+	// {
+	// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j]) << endl; 
+	// }
+	
+	cout << "error in gradient descent is " << errorCalc() << endl;
+	cout << endl;
+	cout << endl;
+
 
 
 	return 0;

@@ -10,7 +10,8 @@
 
 using namespace std;
 
-#define alpha 0.005
+//#define alpha 0.005
+double alpha;
 #define lambda 1
 
 typedef struct DATA
@@ -148,7 +149,8 @@ void gradientDescent(int func)
 	vector<double> sum;
 	vector <double> error(TRAININGSET.size());
 	int count = 0;
-	while(converge >= 0.01)
+	//while(converge >= 0.01)
+	while(++count)
 	{
 		for(int i = 0; i < TRAININGSET.size(); i++)
 		{
@@ -166,9 +168,15 @@ void gradientDescent(int func)
 
 		newJ =  Jsum ;
 		converge = oldJ - newJ;
+		if(count == 1 || count == 100 || count == 200 || count == 500 || count == 1000 || count == 1500 || count == 2000 || count == 5000 || count % 10000 == 0)
+		{
+			cout << "error after " << count << " iterations : " << Jsum << "   ";
+			cout << "convergence : " << converge << endl;
+
+		}
 		//cout << "Jsum : " << Jsum << endl;
 		//cout << "oldJ : " << oldJ << endl;
-		cout << "converge : " << converge << endl;
+		//cout << "converge : " << converge << endl;
 		oldJ = newJ;
 
 		for(int  i = 0; i < 13; i++)
@@ -202,7 +210,7 @@ void gradientDescent(int func)
 		}
 		
 		sum.clear();
-		count ++;
+		if((count == 10000 && func == 1) || (count == 10000 && func == 2) || (count == 10000 && func == 3) )break;
 	}
 	cout << count << endl;
 }
@@ -220,15 +228,16 @@ double errorCalc(int func)
 
 int main()
 {
-	ifstream myfile("data.csv");
+	ofstream myfile;
+	ifstream inputfile("data.csv");
 	string value;
 	vector<double> tokens;
 	int rows = 0;
 	data d;
-	getline (myfile, value, '\n' );
-	while(myfile.good())
+	getline (inputfile, value, '\n' );
+	while(inputfile.good())
 	{
-	     getline (myfile, value, '\n' );
+	     getline (inputfile, value, '\n' );
 	     tokens = parse(value);
 	    
 	     d.sqft = tokens[0];
@@ -264,63 +273,106 @@ int main()
 		TESTSET.push_back(DATASET[j]);
 		//TESTSET[TESTSET.size() - 1].price = 0;
 	}
-
-	initialize();
-	gradientDescent(1);
-
-	// for(i = 0; i < TRAININGSET.size(); i++)
-	// {
-	// 	cout << TRAININGSET[i].sqft << " " << TRAININGSET[i].floors << " " << TRAININGSET[i].bedrooms<< " " << TRAININGSET[i].bathrooms << " " << TRAININGSET[i].price << endl;
-	// }
-
-	for(int  i = 0; i < 5; i++)
+	myfile.open("pyinput.txt", std::ios::out | std::ios::app);
+	alpha = 1;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << Params[i] << " ";
+		alpha /= 2;	
+		myfile << alpha << " ";
 	}
-	cout << endl;
-
-	for(int j = 0; j < TESTSET.size(); j++)
+	myfile << "\n";
+	alpha = 1;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],1) << endl; 
+		alpha /= 2;	
+		cout << "linear case with alpha = " << alpha << " ..." << endl; 
+		initialize();
+		gradientDescent(1);
+		for(int  i = 0; i < 5; i++)
+		{
+			cout << Params[i] << " ";
+		}
+		cout << endl;
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],1) << endl; 
+		// }
+		//cout << endl;
+		cout << "error for linear case when alpha = " << alpha << " is " << errorCalc(1) << endl;
+		myfile << errorCalc(1) << " ";
+		cout << endl;
+		Params.clear();
 	}
-	cout << endl;
-	cout << "error for linear case is : " << errorCalc(1) << endl;
-	Params.clear();
+	myfile << "\n";
 
-	initialize();
-	gradientDescent(2);
-
-	for(int  i = 0; i < 9; i++)
+	alpha = 0.005;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << Params[i] << " ";
+		alpha /= 2;	
+		myfile << alpha << " ";
 	}
-	cout << endl;
-
-	for(int j = 0; j < TESTSET.size(); j++)
+	myfile << "\n";
+	alpha = 0.005;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],2) << endl; 
+		alpha /= 2;	
+		cout << "quadratic case with alpha = " << alpha << " ..." << endl; 
+		initialize();
+		gradientDescent(2);
+
+		for(int  i = 0; i < 9; i++)
+		{
+			cout << Params[i] << " ";
+		}
+		cout << endl;
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],2) << endl; 
+		// }
+		
+		cout << "error for quadratic case when alpha = " << alpha << " is " << errorCalc(2) << endl;
+		myfile << errorCalc(2) << " ";
+		cout << endl;
+		Params.clear();
 	}
-	cout << endl;
-	cout << "error for quadratic case is : " << errorCalc(2) << endl;
-	Params.clear();
+	myfile << "\n";
 
-	initialize();
-	gradientDescent(3);
-
-	for(int  i = 0; i < 13; i++)
+	alpha = 0.000005;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << Params[i] << " ";
+		alpha /= 2;	
+		myfile << alpha << " ";
 	}
-	cout << endl;
-
-	for(int j = 0; j < TESTSET.size(); j++)
+	myfile << "\n";
+	alpha = 0.000005;
+	for(int j = 0; j < 10; j++)
 	{
-		cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],3) << endl; 
+
+		alpha /= 2;	
+		cout << "cubic case with alpha = " << alpha << " ..." << endl; 
+		initialize();
+		gradientDescent(3);
+
+		for(int  i = 0; i < 13; i++)
+		{
+			cout << Params[i] << " ";
+		}
+		cout << endl;
+
+		// for(int j = 0; j < TESTSET.size(); j++)
+		// {
+		// 	cout << "actual : " << TESTSET[j].price << " Prediceted : " << hypothesisFuncion(TESTSET[j],3) << endl; 
+		// }
+		//cout << endl;
+		cout << "error for cubic case when alpha = " << alpha << " is " << errorCalc(3) << endl;
+		myfile << errorCalc(3) << " ";
+		cout << endl;
+		Params.clear();
 	}
-	cout << endl;
-	cout << "error for cubic case is : " << errorCalc(3) << endl;
-	Params.clear();
-
-
+	myfile << "\n";
+	myfile.close();
+	
 	return 0;
 }
