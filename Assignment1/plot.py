@@ -8,7 +8,14 @@ x_axis = np.array(x.split(' ')).astype(float)
 y = input().strip()
 y_axis = np.array(y.split(' ')).astype(float)
 
-### question 2 for GD with LR 0.05
+### question 2 for GD with LR 0.05 ii) IRLS
+
+x = input().strip()
+x_axis11 = np.array(x.split(' ')).astype(float)
+
+y = input().strip()
+y_axis11 = np.array(y.split(' ')).astype(float)
+
 x = input().strip()
 x_axis1 = np.array(x.split(' ')).astype(float)
 
@@ -56,6 +63,7 @@ y_axis7 = np.array(y.split(' ')).astype(float)
 
 
 f, (ax) = plt.subplots(1, sharex=True, sharey=True)
+f, (ax11) = plt.subplots(1, sharex=True, sharey=True)
 f, (ax1) = plt.subplots(1, sharex=True, sharey=True)
 f, (ax2) = plt.subplots(1, sharex=True, sharey=True)
 f, (ax3) = plt.subplots(1, sharex=True, sharey=True)
@@ -69,6 +77,10 @@ f, (ax9) = plt.subplots(1, sharex=True, sharey=True)
 ax.plot(x_axis, y_axis, 'o-')
 ax.set_xlabel('lambda')
 ax.set_ylabel('RMSE in regularization')
+
+ax11.plot(x_axis11, y_axis11, 'o-')
+ax11.set_xlabel('number of iterations')
+ax11.set_ylabel('RMSE in IRLS')
 
 ax1.plot(x_axis1, y_axis1, 'o-')
 ax1.set_xlabel('number of iterations')

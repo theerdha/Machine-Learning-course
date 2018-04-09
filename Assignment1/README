@@ -1,0 +1,16 @@
+To run the codes
+==> run the commands in this order
+g++ question1.cpp -o q1
+./q1 > q1_output.txt
+g++ question2.cpp -o q2
+./q2 > q2_output.txt
+g++ question3.cpp -o q3
+./q3 > q3_output.txt
+g++ question4.cpp -o q4
+./q4 > q4_output.txt
+
+==> outputs are saved in q1_output.txt,q2_output.txt,q3_output.txt,q4_output.txt
+
+==> To plot the graphs
+python3 plot.py < pyinput.txt
+

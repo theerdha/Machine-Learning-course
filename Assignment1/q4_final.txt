@@ -1,0 +1,310 @@
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22337e+18   convergence : 0
+error after 4 iterations : 9.22337e+18   convergence : 0
+error after 5 iterations : 9.22337e+18   convergence : 0
+parameters in gradient descent with cubic mean error and alpha 3.5e-05 is -6.91924e+32 -1.9903e+33 -9.14914e+32 -2.44216e+33 -2.36743e+33
+error in gradient decent with cubic mean error and alpha 3.5e-05 is 5.16452e+33
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22337e+18   convergence : 0
+error after 4 iterations : 9.22337e+18   convergence : 0
+error after 5 iterations : 9.22337e+18   convergence : 0
+parameters in gradient descent with cubic mean error and alpha 1.75e-05 is -1.92033e+28 -5.57611e+28 -2.55411e+28 -6.83633e+28 -6.61435e+28
+error in gradient decent with cubic mean error and alpha 1.75e-05 is 1.44377e+29
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22337e+18   convergence : 0
+error after 4 iterations : 9.22337e+18   convergence : 0
+error after 5 iterations : 9.22337e+18   convergence : 0
+parameters in gradient descent with cubic mean error and alpha 8.75e-06 is -4.81688e+23 -1.42727e+24 -6.49036e+23 -1.74737e+24 -1.68369e+24
+error in gradient decent with cubic mean error and alpha 8.75e-06 is 3.67958e+24
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22017e+18   convergence : 3.20052e+15
+error after 4 iterations : 9.22337e+18   convergence : -3.20052e+15
+error after 5 iterations : 9.22337e+18   convergence : 0
+parameters in gradient descent with cubic mean error and alpha 4.375e-06 is -9.68117e+18 -3.00435e+19 -1.34639e+19 -3.67266e+19 -3.50618e+19
+error in gradient decent with cubic mean error and alpha 4.375e-06 is 7.68149e+19
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.21324e+18   convergence : 1.0135e+16
+error after 4 iterations : 9.22337e+18   convergence : -1.0135e+16
+error after 5 iterations : 9.22337e+18   convergence : 0
+parameters in gradient descent with cubic mean error and alpha 2.1875e-06 is -1.14528e+14 -4.00061e+14 -1.74564e+14 -4.91578e+14 -4.58839e+14
+error in gradient decent with cubic mean error and alpha 2.1875e-06 is 1.01001e+15
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.2143e+18   convergence : 9.06815e+15
+error after 4 iterations : 9.21857e+18   convergence : -4.26736e+15
+error after 5 iterations : 9.22337e+18   convergence : -4.80078e+15
+parameters in gradient descent with cubic mean error and alpha 1.09375e-06 is -2.85915e+08 -1.38459e+09 -5.95535e+08 -1.80895e+09 -1.60189e+09
+error in gradient decent with cubic mean error and alpha 1.09375e-06 is 3.54048e+09
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.2015e+18   convergence : 2.18702e+16
+error after 4 iterations : 9.18283e+18   convergence : 1.86697e+16
+error after 5 iterations : 9.1903e+18   convergence : -7.46789e+15
+parameters in gradient descent with cubic mean error and alpha 5.46875e-07 is 542946 16113.7 51539.8 30509.5 281444
+error in gradient decent with cubic mean error and alpha 5.46875e-07 is 354441
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.20684e+18   convergence : 1.6536e+16
+error after 4 iterations : 9.19777e+18   convergence : 9.06815e+15
+error after 5 iterations : 9.18497e+18   convergence : 1.28021e+16
+parameters in gradient descent with cubic mean error and alpha 2.73437e-07 is 386680 22069.8 61015.1 72016.6 243822
+error in gradient decent with cubic mean error and alpha 2.73437e-07 is 345435
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22337e+18   convergence : 0
+error after 4 iterations : 9.2143e+18   convergence : 9.06815e+15
+error after 5 iterations : 9.20364e+18   convergence : 1.06684e+16
+parameters in gradient descent with cubic mean error and alpha 1.36719e-07 is 241225 19996.5 52593.3 72945.8 185691
+error in gradient decent with cubic mean error and alpha 1.36719e-07 is 400984
+
+error after 2 iterations : 9.22337e+18   convergence : 1.79769e+308
+error after 3 iterations : 9.22337e+18   convergence : 0
+error after 4 iterations : 9.22337e+18   convergence : 0
+error after 5 iterations : 9.22017e+18   convergence : 3.20052e+15
+parameters in gradient descent with cubic mean error and alpha 6.83594e-08 is 139784 14686.9 37232.6 53344.1 122156
+error in gradient decent with cubic mean error and alpha 6.83594e-08 is 486713
+
+error after 100 iterations : 121400   convergence : 546
+error after 200 iterations : 103116   convergence : 153
+error after 300 iterations : 101812   convergence : -8
+error after 400 iterations : 101667   convergence : 3
+error after 500 iterations : 101766   convergence : -1
+error after 600 iterations : 101698   convergence : 0
+error after 700 iterations : 101586   convergence : 0
+error after 800 iterations : 101529   convergence : -1
+error after 900 iterations : 101532   convergence : 0
+error after 1000 iterations : 101516   convergence : 0
+parameters in gradient descent with Abs mean error and alpha 0.2 is 447027 8.42633 17.6812 21.7998 36.347
+error in gradient decent with Abs mean error alpha 0.2 is 389914
+
+error after 100 iterations : 174289   convergence : 805
+error after 200 iterations : 120851   convergence : 280
+error after 300 iterations : 106921   convergence : 109
+error after 400 iterations : 103123   convergence : -7
+error after 500 iterations : 102182   convergence : -1
+error after 600 iterations : 101812   convergence : -2
+error after 700 iterations : 101776   convergence : 22
+error after 800 iterations : 101668   convergence : 1
+error after 900 iterations : 101854   convergence : 1
+error after 1000 iterations : 101765   convergence : 0
+parameters in gradient descent with Abs mean error and alpha 0.1 is 445598 3.76672 7.88393 9.85608 15.9156
+error in gradient decent with Abs mean error alpha 0.1 is 390377
+
+error after 100 iterations : 215650   convergence : 377
+error after 200 iterations : 173549   convergence : 397
+error after 300 iterations : 139498   convergence : 421
+error after 400 iterations : 120698   convergence : 88
+error after 500 iterations : 111322   convergence : 73
+error after 600 iterations : 106815   convergence : 100
+error after 700 iterations : 104422   convergence : 75
+error after 800 iterations : 103072   convergence : 41
+error after 900 iterations : 102297   convergence : 7
+error after 1000 iterations : 102137   convergence : 47
+parameters in gradient descent with Abs mean error and alpha 0.05 is 425908 2.37108 3.97118 4.44422 6.37948
+error in gradient decent with Abs mean error alpha 0.05 is 396979
+
+error after 100 iterations : 236911   convergence : 193
+error after 200 iterations : 215199   convergence : 187
+error after 300 iterations : 193802   convergence : 171
+error after 400 iterations : 173167   convergence : 196
+error after 500 iterations : 154465   convergence : 177
+error after 600 iterations : 139280   convergence : 73
+error after 700 iterations : 128290   convergence : 26
+error after 800 iterations : 120637   convergence : 38
+error after 900 iterations : 115287   convergence : 9
+error after 1000 iterations : 111351   convergence : -23
+parameters in gradient descent with Abs mean error and alpha 0.025 is 343963 0.700184 1.63558 1.50976 2.33915
+error in gradient decent with Abs mean error alpha 0.025 is 433045
+
+error after 100 iterations : 247498   convergence : 43
+error after 200 iterations : 236642   convergence : 56
+error after 300 iterations : 225799   convergence : 90
+error after 400 iterations : 215015   convergence : 131
+error after 500 iterations : 204258   convergence : 164
+error after 600 iterations : 193605   convergence : 43
+error after 700 iterations : 183207   convergence : 43
+error after 800 iterations : 172965   convergence : 179
+error after 900 iterations : 163194   convergence : 64
+error after 1000 iterations : 154333   convergence : 51
+parameters in gradient descent with Abs mean error and alpha 0.0125 is 211833 0.0549223 0.499184 1.0262 1.06889
+error in gradient decent with Abs mean error alpha 0.0125 is 513886
+
+error after 100 iterations : 252648   convergence : 23
+error after 200 iterations : 247378   convergence : 32
+error after 300 iterations : 241920   convergence : 88
+error after 400 iterations : 236464   convergence : 152
+error after 500 iterations : 231063   convergence : 120
+error after 600 iterations : 225658   convergence : 94
+error after 700 iterations : 220345   convergence : 47
+error after 800 iterations : 214964   convergence : 29
+error after 900 iterations : 209546   convergence : 32
+error after 1000 iterations : 204191   convergence : 29
+parameters in gradient descent with Abs mean error and alpha 0.00625 is 107903 0.28444 0.739589 0.642375 0.356606
+error in gradient decent with Abs mean error alpha 0.00625 is 590615
+
+error after 100 iterations : 255328   convergence : 17
+error after 200 iterations : 252629   convergence : 10
+error after 300 iterations : 249928   convergence : 13
+error after 400 iterations : 247352   convergence : 5
+error after 500 iterations : 244641   convergence : 1
+error after 600 iterations : 241909   convergence : 11
+error after 700 iterations : 239218   convergence : 7
+error after 800 iterations : 236433   convergence : 18
+error after 900 iterations : 233730   convergence : 13
+error after 1000 iterations : 231039   convergence : 8
+parameters in gradient descent with Abs mean error and alpha 0.003125 is 53981 0.165974 0.440105 0.880075 0.829201
+error in gradient decent with Abs mean error alpha 0.003125 is 633487
+
+error after 100 iterations : 256718   convergence : 3
+error after 200 iterations : 255314   convergence : 13
+error after 300 iterations : 253973   convergence : 3
+error after 400 iterations : 252627   convergence : 0
+error after 500 iterations : 251291   convergence : 14
+error after 600 iterations : 249919   convergence : 2
+error after 700 iterations : 248519   convergence : 12
+error after 800 iterations : 247334   convergence : 0
+error after 900 iterations : 245772   convergence : 4
+error after 1000 iterations : 244617   convergence : 3
+parameters in gradient descent with Abs mean error and alpha 0.0015625 is 26990.5 0.228968 0.893372 0.35036 0.68667
+error in gradient decent with Abs mean error alpha 0.0015625 is 655560
+
+error after 100 iterations : 257346   convergence : 0
+error after 200 iterations : 256718   convergence : 0
+error after 300 iterations : 256032   convergence : 17
+error after 400 iterations : 255307   convergence : 0
+error after 500 iterations : 254618   convergence : 10
+error after 600 iterations : 253973   convergence : 0
+error after 700 iterations : 253286   convergence : 1
+error after 800 iterations : 252613   convergence : 3
+error after 900 iterations : 251938   convergence : 1
+error after 1000 iterations : 251289   convergence : 1
+parameters in gradient descent with Abs mean error and alpha 0.00078125 is 13496 0.58864 0.657304 0.858676 0.43956
+error in gradient decent with Abs mean error alpha 0.00078125 is 666732
+
+error after 100 iterations : 257676   convergence : 0
+error after 200 iterations : 257344   convergence : 1
+error after 300 iterations : 257138   convergence : 1
+error after 400 iterations : 256710   convergence : 5
+error after 500 iterations : 256330   convergence : 26
+error after 600 iterations : 256028   convergence : 2
+error after 700 iterations : 255561   convergence : 1
+error after 800 iterations : 255307   convergence : 0
+error after 900 iterations : 254987   convergence : 0
+error after 1000 iterations : 254618   convergence : 0
+parameters in gradient descent with Abs mean error and alpha 0.000390625 is 6748.47 0.398437 0.814767 0.684219 0.910972
+error in gradient decent with Abs mean error alpha 0.000390625 is 672349
+
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.5 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.5 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.25 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.25 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.125 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.125 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.0625 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.0625 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.03125 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.03125 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : -0.000282288
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 100 iterations : 4.84446e+10   convergence : 0
+-1
+parameters in gradient descent with square mean error and alpha 0.015625 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.015625 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 0.000328064
+error after 2000 iterations : 4.84446e+10   convergence : -0.000183105
+error after 1500 iterations : 4.84446e+10   convergence : -0.000213623
+error after 1000 iterations : 4.84446e+10   convergence : 0.000198364
+error after 500 iterations : 4.84446e+10   convergence : -8.39233e-05
+error after 200 iterations : 4.84446e+10   convergence : -8.39233e-05
+error after 100 iterations : 4.84446e+10   convergence : 2.28882e-05
+-1
+parameters in gradient descent with square mean error and alpha 0.0078125 is 533335 15707.1 13510.6 17564.9 176953
+error in gradient decent with square mean error alpha 0.0078125 is 314950
+
+error after 5000 iterations : 4.84446e+10   convergence : 24.5784
+error after 2000 iterations : 4.84446e+10   convergence : 0.0203094
+error after 1500 iterations : 4.84446e+10   convergence : 0.0063858
+error after 1000 iterations : 4.84446e+10   convergence : 0.00206757
+error after 500 iterations : 4.84446e+10   convergence : 0.000312805
+error after 200 iterations : 4.84446e+10   convergence : 0.000747681
+error after 100 iterations : 4.84446e+10   convergence : 0.000259399
+-1
+parameters in gradient descent with square mean error and alpha 0.00390625 is 533335 15707.1 13511.1 17565.1 176952
+error in gradient decent with square mean error alpha 0.00390625 is 314950
+
+error after 5000 iterations : 4.84484e+10   convergence : 4524.67
+error after 2000 iterations : 4.84447e+10   convergence : 130.522
+error after 1500 iterations : 4.84446e+10   convergence : 72.3245
+error after 1000 iterations : 4.84446e+10   convergence : 40.0768
+error after 500 iterations : 4.84446e+10   convergence : 22.208
+error after 200 iterations : 4.84446e+10   convergence : 15.5842
+error after 100 iterations : 4.84446e+10   convergence : 13.8491
+-1
+parameters in gradient descent with square mean error and alpha 0.00195312 is 533335 15721.5 13688.7 17660 176786
+error in gradient decent with square mean error alpha 0.00195312 is 314964
+
+error after 5000 iterations : 4.85276e+10   convergence : 61123.6
+error after 2000 iterations : 4.84571e+10   convergence : 7455.57
+error after 1500 iterations : 4.84539e+10   convergence : 5520.81
+error after 1000 iterations : 4.84515e+10   convergence : 4096.33
+error after 500 iterations : 4.84497e+10   convergence : 3042.92
+error after 200 iterations : 4.84489e+10   convergence : 2546.73
+error after 100 iterations : 4.84486e+10   convergence : 2400.11
+-1
+parameters in gradient descent with square mean error and alpha 0.000976562 is 533305 15989 16826.7 19493.9 173717
+error in gradient decent with square mean error alpha 0.000976562 is 315212
+

@@ -1,0 +1,17 @@
+parameters in IRLS are 533336 15707.5 13511.4 17565.7 176954
+error in IRLS is 314950
+
+
+error after 100 iterations : 1.05349e+11   convergence : 5.85142e+08
+error after 200 iterations : 6.92091e+10   convergence : 2.07296e+08
+error after 500 iterations : 4.97328e+10   convergence : 1.07225e+07
+error after 1000 iterations : 4.85204e+10   convergence : 278277
+error after 1500 iterations : 4.84597e+10   convergence : 46261.2
+error after 2000 iterations : 4.84479e+10   convergence : 10021.5
+error after 5000 iterations : 4.84446e+10   convergence : 1.14748
+error after 6500 iterations : 4.84446e+10   convergence : 0.0124893
+Number of epochs : 6563
+parameters in gradient descent are 533335 15707.3 13513.8 17566.6 176950
+error in gradient descent is 314950
+
+

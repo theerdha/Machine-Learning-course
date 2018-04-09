@@ -1,0 +1,234 @@
+error after 100 iterations : 1.05348e+11   convergence : 5.8514e+08
+error after 200 iterations : 6.9209e+10   convergence : 2.07295e+08
+error after 500 iterations : 4.97328e+10   convergence : 1.07225e+07
+error after 1000 iterations : 4.85204e+10   convergence : 278277
+error after 1500 iterations : 4.84597e+10   convergence : 46261.2
+error after 2000 iterations : 4.84479e+10   convergence : 10021.5
+error after 5000 iterations : 4.84446e+10   convergence : 1.14751
+6561
+parameters in gradient descent533335 15707.3 13513.8 17566.6 176950
+error in gradient descent is 314950
+
+
+error after 100 iterations : 1.05349e+11   convergence : 5.85142e+08
+error after 200 iterations : 6.92091e+10   convergence : 2.07296e+08
+error after 500 iterations : 4.97328e+10   convergence : 1.07225e+07
+error after 1000 iterations : 4.85204e+10   convergence : 278277
+error after 1500 iterations : 4.84597e+10   convergence : 46261.2
+error after 2000 iterations : 4.84479e+10   convergence : 10021.5
+error after 5000 iterations : 4.84446e+10   convergence : 1.14747
+6563
+parameters in gradient descent with reg param 0 is 533335 15707.3 13513.8 17566.6 176950
+error in gradient decent with reg param 0 is 314950
+
+
+error after 100 iterations : 1.06012e+11   convergence : 5.7631e+08
+error after 200 iterations : 7.06414e+10   convergence : 2.01056e+08
+error after 500 iterations : 5.21229e+10   convergence : 9.22759e+06
+837
+parameters in gradient descent with reg param 0.1 is 525301 17322.1 29465.7 30017.2 158582
+error in gradient decent with reg param 0.1 is 315632
+
+
+error after 100 iterations : 1.06675e+11   convergence : 5.67478e+08
+error after 200 iterations : 7.20737e+10   convergence : 1.94816e+08
+error after 500 iterations : 5.45129e+10   convergence : 7.73271e+06
+710
+parameters in gradient descent with reg param 0.2 is 518151 17662.1 32197 33111.3 154261
+error in gradient decent with reg param 0.2 is 315457
+
+
+error after 100 iterations : 1.07339e+11   convergence : 5.5865e+08
+error after 200 iterations : 7.35061e+10   convergence : 1.88577e+08
+error after 500 iterations : 5.6903e+10   convergence : 6.23792e+06
+644
+parameters in gradient descent with reg param 0.3 is 512197 17849.7 33694.7 34977.3 151516
+error in gradient decent with reg param 0.3 is 315376
+
+
+error after 100 iterations : 1.08002e+11   convergence : 5.49818e+08
+error after 200 iterations : 7.49384e+10   convergence : 1.82337e+08
+error after 500 iterations : 5.9293e+10   convergence : 4.74315e+06
+598
+parameters in gradient descent with reg param 0.4 is 506715 17978.1 34747 36375.5 149333
+error in gradient decent with reg param 0.4 is 315382
+
+
+error after 100 iterations : 1.08665e+11   convergence : 5.40987e+08
+error after 200 iterations : 7.63707e+10   convergence : 1.76097e+08
+error after 500 iterations : 6.1683e+10   convergence : 3.24845e+06
+562
+parameters in gradient descent with reg param 0.5 is 501451 18072.9 35561.1 37516.5 147436
+error in gradient decent with reg param 0.5 is 315472
+
+
+error after 100 iterations : 1.09328e+11   convergence : 5.32156e+08
+error after 200 iterations : 7.7803e+10   convergence : 1.69858e+08
+error after 500 iterations : 6.40729e+10   convergence : 1.75382e+06
+532
+parameters in gradient descent with reg param 0.6 is 496277 18144.4 36222.9 38490.8 145703
+error in gradient decent with reg param 0.6 is 315644
+
+
+error after 100 iterations : 1.09992e+11   convergence : 5.23325e+08
+error after 200 iterations : 7.92353e+10   convergence : 1.63619e+08
+error after 500 iterations : 6.64628e+10   convergence : 259228
+506
+parameters in gradient descent with reg param 0.7 is 491119 18198.3 36775.8 39345.1 144072
+error in gradient decent with reg param 0.7 is 315903
+
+
+error after 100 iterations : 1.10655e+11   convergence : 5.14495e+08
+error after 200 iterations : 8.06676e+10   convergence : 1.5738e+08
+483
+parameters in gradient descent with reg param 0.8 is 485960 18237.1 37242.3 40101.3 142515
+error in gradient decent with reg param 0.8 is 316252
+
+
+error after 100 iterations : 1.11318e+11   convergence : 5.05664e+08
+error after 200 iterations : 8.20998e+10   convergence : 1.5114e+08
+462
+parameters in gradient descent with reg param 0.9 is 480701 18263.1 37643.5 40786.5 140986
+error in gradient decent with reg param 0.9 is 316703
+
+
+error after 100 iterations : 1.11982e+11   convergence : 4.96835e+08
+error after 200 iterations : 8.3532e+10   convergence : 1.44902e+08
+443
+parameters in gradient descent with reg param 1 is 475442 18277.1 37981.2 41396.1 139503
+error in gradient decent with reg param 1 is 317249
+
+
+error after 100 iterations : 1.12645e+11   convergence : 4.88004e+08
+error after 200 iterations : 8.49643e+10   convergence : 1.38663e+08
+425
+parameters in gradient descent with reg param 1.1 is 469976 18280 38274.1 41958.9 138000
+error in gradient decent with reg param 1.1 is 317922
+
+
+error after 100 iterations : 1.13308e+11   convergence : 4.79173e+08
+error after 200 iterations : 8.63965e+10   convergence : 1.32424e+08
+409
+parameters in gradient descent with reg param 1.2 is 464685 18272.4 38507.4 42441.9 136577
+error in gradient decent with reg param 1.2 is 318674
+
+
+error after 100 iterations : 1.13971e+11   convergence : 4.70343e+08
+error after 200 iterations : 8.78287e+10   convergence : 1.26185e+08
+393
+parameters in gradient descent with reg param 1.3 is 458953 18253.7 38711.2 42903.9 135061
+error in gradient decent with reg param 1.3 is 319603
+
+
+error after 100 iterations : 1.14635e+11   convergence : 4.61512e+08
+error after 200 iterations : 8.92609e+10   convergence : 1.19947e+08
+379
+parameters in gradient descent with reg param 1.4 is 453545 18226.8 38862 43286 133652
+error in gradient decent with reg param 1.4 is 320588
+
+
+error after 100 iterations : 1.15298e+11   convergence : 4.52682e+08
+error after 200 iterations : 9.06931e+10   convergence : 1.13708e+08
+365
+parameters in gradient descent with reg param 1.5 is 447745 18188.5 38982.7 43643 132157
+error in gradient decent with reg param 1.5 is 321763
+
+
+error after 100 iterations : 1.15961e+11   convergence : 4.43853e+08
+error after 200 iterations : 9.21253e+10   convergence : 1.0747e+08
+352
+parameters in gradient descent with reg param 1.6 is 441982 18141.4 39065 43947.3 130685
+error in gradient decent with reg param 1.6 is 323050
+
+
+error after 100 iterations : 1.16624e+11   convergence : 4.35022e+08
+error after 200 iterations : 9.35573e+10   convergence : 1.01232e+08
+339
+parameters in gradient descent with reg param 1.7 is 435831 18081.8 39114.4 44221.4 129126
+error in gradient decent with reg param 1.7 is 324557
+
+
+error after 100 iterations : 1.17288e+11   convergence : 4.26192e+08
+error after 200 iterations : 9.49895e+10   convergence : 9.49936e+07
+327
+parameters in gradient descent with reg param 1.8 is 429786 18014.1 39127.6 44442.5 127602
+error in gradient decent with reg param 1.8 is 326172
+
+
+error after 100 iterations : 1.17951e+11   convergence : 4.17364e+08
+error after 200 iterations : 9.64216e+10   convergence : 8.8756e+07
+316
+parameters in gradient descent with reg param 1.9 is 423916 17940.4 39109.7 44614.9 126127
+error in gradient decent with reg param 1.9 is 327865
+
+
+error after 100 iterations : 1.18614e+11   convergence : 4.08533e+08
+error after 200 iterations : 9.78537e+10   convergence : 8.25176e+07
+305
+parameters in gradient descent with reg param 2 is 417713 17854.3 39059.4 44753.8 124573
+error in gradient decent with reg param 2 is 329788
+
+
+error after 100 iterations : 1.19277e+11   convergence : 3.99704e+08
+error after 200 iterations : 9.92858e+10   convergence : 7.62796e+07
+295
+parameters in gradient descent with reg param 2.1 is 411770 17764.1 38983.5 44847.8 123086
+error in gradient decent with reg param 2.1 is 331760
+
+
+error after 100 iterations : 1.19941e+11   convergence : 3.90875e+08
+error after 200 iterations : 1.00718e+11   convergence : 7.00423e+07
+285
+parameters in gradient descent with reg param 2.2 is 405521 17661.6 38876 44907.5 121522
+error in gradient decent with reg param 2.2 is 333966
+
+
+error after 100 iterations : 1.20604e+11   convergence : 3.82045e+08
+error after 200 iterations : 1.0215e+11   convergence : 6.38051e+07
+276
+parameters in gradient descent with reg param 2.3 is 399623 17557.7 38750.2 44929.2 120044
+error in gradient decent with reg param 2.3 is 336174
+
+
+error after 100 iterations : 1.21267e+11   convergence : 3.73215e+08
+error after 200 iterations : 1.03582e+11   convergence : 5.75669e+07
+267
+parameters in gradient descent with reg param 2.4 is 393453 17442.3 38594.4 44917.1 118496
+error in gradient decent with reg param 2.4 is 338612
+
+
+error after 100 iterations : 1.2193e+11   convergence : 3.64387e+08
+error after 200 iterations : 1.05014e+11   convergence : 5.13296e+07
+258
+parameters in gradient descent with reg param 2.5 is 386998 17313.8 38406.5 44867.7 116873
+error in gradient decent with reg param 2.5 is 341301
+
+
+error after 100 iterations : 1.22594e+11   convergence : 3.55556e+08
+error after 200 iterations : 1.06446e+11   convergence : 4.50921e+07
+250
+parameters in gradient descent with reg param 2.6 is 381011 17188.1 38210.3 44790 115363
+error in gradient decent with reg param 2.6 is 343921
+
+
+error after 100 iterations : 1.23257e+11   convergence : 3.46729e+08
+error after 200 iterations : 1.07878e+11   convergence : 3.88553e+07
+242
+parameters in gradient descent with reg param 2.7 is 374778 17051 37984.5 44678.2 113785
+error in gradient decent with reg param 2.7 is 346775
+
+
+error after 100 iterations : 1.2392e+11   convergence : 3.37899e+08
+error after 200 iterations : 1.0931e+11   convergence : 3.26185e+07
+235
+parameters in gradient descent with reg param 2.8 is 369116 16920.5 37761.7 44549.6 112347
+error in gradient decent with reg param 2.8 is 349477
+
+
+error after 100 iterations : 1.24583e+11   convergence : 3.29069e+08
+error after 200 iterations : 1.10742e+11   convergence : 2.63805e+07
+228
+parameters in gradient descent with reg param 2.9 is 363252 16779.9 37513.1 44390.4 110852
+error in gradient decent with reg param 2.9 is 352385
+
+

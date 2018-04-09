@@ -445,7 +445,17 @@ int main()
 	}
 
 	initialize();
+
+	ofstream myfile;
+	myfile.open("pyinput.txt", std::ios_base::app);
+	myfile << "0 1 100 300 500" << endl;
+	myfile << errorCalc() << " ";
+
+
 	gradientDescentIRLS();
+	myfile << errorCalc() << " ";myfile << errorCalc() << " ";myfile << errorCalc() << " ";
+	myfile << errorCalc() << endl;
+	myfile.close();
 	cout << "parameters in IRLS are " <<  P0 << " " << P1 << " " << P2 << " " << P3 << " " << P4 << endl;
 
 	// for(int j = 0; j < TESTSET.size(); j++)

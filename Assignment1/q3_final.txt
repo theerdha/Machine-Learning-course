@@ -1,0 +1,420 @@
+linear case with alpha = 0.5 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 4.84446e+10   convergence : -0.000236511
+error after 200 iterations : 4.84446e+10   convergence : 0
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.5 is 314950
+
+linear case with alpha = 0.25 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 4.84446e+10   convergence : 41.8186
+error after 200 iterations : 4.84446e+10   convergence : -0.000282288
+error after 500 iterations : 4.84446e+10   convergence : 0
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.25 is 314950
+
+linear case with alpha = 0.125 ...
+error after 1 iterations : 2.09258e+11   convergence : 1.79769e+308
+error after 100 iterations : 4.84453e+10   convergence : 54649.9
+error after 200 iterations : 4.84446e+10   convergence : 24.7253
+error after 500 iterations : 4.84446e+10   convergence : -9.15527e-05
+error after 1000 iterations : 4.84446e+10   convergence : 0
+error after 1500 iterations : 4.84446e+10   convergence : 0
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.125 is 314950
+
+linear case with alpha = 0.0625 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 4.84774e+10   convergence : 1.32762e+06
+error after 200 iterations : 4.84453e+10   convergence : 27490.4
+error after 500 iterations : 4.84446e+10   convergence : 0.295731
+error after 1000 iterations : 4.84446e+10   convergence : -9.15527e-05
+error after 1500 iterations : 4.84446e+10   convergence : 7.62939e-06
+error after 2000 iterations : 4.84446e+10   convergence : 0
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.0625 is 314950
+
+linear case with alpha = 0.03125 ...
+error after 1 iterations : 2.09258e+11   convergence : 1.79769e+308
+error after 100 iterations : 4.89373e+10   convergence : 2.20314e+07
+error after 200 iterations : 4.84774e+10   convergence : 657039
+error after 500 iterations : 4.84447e+10   convergence : 2065.67
+error after 1000 iterations : 4.84446e+10   convergence : 0.15712
+error after 1500 iterations : 4.84446e+10   convergence : 7.62939e-06
+error after 2000 iterations : 4.84446e+10   convergence : 9.15527e-05
+error after 5000 iterations : 4.84446e+10   convergence : 0
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.03125 is 314950
+
+linear case with alpha = 0.015625 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 5.54832e+10   convergence : 2.14032e+08
+error after 200 iterations : 4.89412e+10   convergence : 1.09393e+07
+error after 500 iterations : 4.84571e+10   convergence : 119829
+error after 1000 iterations : 4.84447e+10   convergence : 1038.89
+error after 1500 iterations : 4.84446e+10   convergence : 9.14686
+error after 2000 iterations : 4.84446e+10   convergence : 0.080513
+error after 5000 iterations : 4.84446e+10   convergence : -0.000282288
+error after 10000 iterations : 4.84446e+10   convergence : 0
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.015625 is 314950
+
+linear case with alpha = 0.0078125 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 8.10382e+10   convergence : 5.17596e+08
+error after 200 iterations : 5.54601e+10   convergence : 1.05423e+08
+error after 500 iterations : 4.8639e+10   convergence : 1.57434e+06
+error after 1000 iterations : 4.84571e+10   convergence : 59770.2
+error after 1500 iterations : 4.84458e+10   convergence : 5542.32
+error after 2000 iterations : 4.84447e+10   convergence : 520.959
+error after 5000 iterations : 4.84446e+10   convergence : 0.000259399
+error after 10000 iterations : 4.84446e+10   convergence : 7.62939e-06
+10000
+533335 15707.1 13510.6 17564.9 176953 
+error for linear case when alpha = 0.0078125 is 314950
+
+linear case with alpha = 0.00390625 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.20278e+11   convergence : 5.80011e+08
+error after 200 iterations : 8.08853e+10   convergence : 2.56005e+08
+error after 500 iterations : 5.18225e+10   convergence : 2.41645e+07
+error after 1000 iterations : 4.86393e+10   convergence : 786980
+error after 1500 iterations : 4.84868e+10   convergence : 107406
+error after 2000 iterations : 4.84571e+10   convergence : 29849.2
+error after 5000 iterations : 4.84446e+10   convergence : 24.5782
+error after 10000 iterations : 4.84446e+10   convergence : -0.00038147
+10000
+533335 15707.1 13511.1 17565.1 176952 
+error for linear case when alpha = 0.00390625 is 314950
+
+linear case with alpha = 0.00195312 ...
+error after 1 iterations : 2.09258e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.55697e+11   convergence : 4.36912e+08
+error after 200 iterations : 1.2005e+11   convergence : 2.88165e+08
+error after 500 iterations : 7.03503e+10   convergence : 8.51736e+07
+error after 1000 iterations : 5.1822e+10   convergence : 1.20468e+07
+error after 1500 iterations : 4.91063e+10   convergence : 1.916e+06
+error after 2000 iterations : 4.86395e+10   convergence : 393443
+error after 5000 iterations : 4.84484e+10   convergence : 4524.68
+error after 10000 iterations : 4.84446e+10   convergence : 12.3063
+10000
+533335 15721.5 13688.7 17660 176786 
+error for linear case when alpha = 0.00195312 is 314964
+
+linear case with alpha = 0.000976562 ...
+error after 1 iterations : 2.09258e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.79702e+11   convergence : 2.68644e+08
+error after 200 iterations : 1.55502e+11   convergence : 2.17705e+08
+error after 500 iterations : 1.0697e+11   convergence : 1.16899e+08
+error after 1000 iterations : 7.03291e+10   convergence : 4.24813e+07
+error after 1500 iterations : 5.68748e+10   convergence : 1.58095e+07
+error after 2000 iterations : 5.18217e+10   convergence : 6.01457e+06
+error after 5000 iterations : 4.85276e+10   convergence : 61123.9
+error after 10000 iterations : 4.84484e+10   convergence : 2262
+10000
+533305 15989 16826.8 19493.9 173717 
+error for linear case when alpha = 0.000976562 is 315212
+
+quadratic case with alpha = 0.0025 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 9.66873e+10   convergence : 3.83628e+08
+error after 200 iterations : 7.51453e+10   convergence : 1.26425e+08
+error after 500 iterations : 5.63243e+10   convergence : 3.118e+07
+error after 1000 iterations : 4.85312e+10   convergence : 7.4074e+06
+error after 1500 iterations : 4.61898e+10   convergence : 2.90544e+06
+error after 2000 iterations : 4.5168e+10   convergence : 1.41118e+06
+error after 5000 iterations : 4.39706e+10   convergence : 65110.6
+error after 10000 iterations : 4.38965e+10   convergence : 936.56
+10000
+488880 19118.8 32735.6 24480.4 138263 -521.431 -14518.1 -1011.72 54370.3 
+error for quadratic case when alpha = 0.0025 is 304987
+
+quadratic case with alpha = 0.00125 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.26385e+11   convergence : 4.58057e+08
+error after 200 iterations : 9.65701e+10   convergence : 1.90015e+08
+error after 500 iterations : 6.97729e+10   convergence : 4.56081e+07
+error after 1000 iterations : 5.63158e+10   convergence : 1.55566e+07
+error after 1500 iterations : 5.10715e+10   convergence : 6.93972e+06
+error after 2000 iterations : 4.85296e+10   convergence : 3.69967e+06
+error after 5000 iterations : 4.46447e+10   convergence : 381400
+error after 10000 iterations : 4.39706e+10   convergence : 32547.1
+10000
+475682 19631.7 19087.4 27642.5 138337 -533.127 3095.55 -1120.21 55009.5 
+error for quadratic case when alpha = 0.00125 is 304695
+
+quadratic case with alpha = 0.000625 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.55673e+11   convergence : 3.78145e+08
+error after 200 iterations : 1.26213e+11   convergence : 2.27395e+08
+error after 500 iterations : 8.86045e+10   convergence : 6.63149e+07
+error after 1000 iterations : 6.97582e+10   convergence : 2.27681e+07
+error after 1500 iterations : 6.12854e+10   convergence : 1.26329e+07
+error after 2000 iterations : 5.63116e+10   convergence : 7.77004e+06
+error after 5000 iterations : 4.70901e+10   convergence : 1.11418e+06
+error after 10000 iterations : 4.46446e+10   convergence : 190650
+10000
+439287 18989.2 112.33 39391.6 126958 -466.191 44694.2 -1502.65 58843.8 
+error for quadratic case when alpha = 0.000625 is 308995
+
+quadratic case with alpha = 0.0003125 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.77178e+11   convergence : 2.5077e+08
+error after 200 iterations : 1.5551e+11   convergence : 1.88278e+08
+error after 500 iterations : 1.16067e+11   convergence : 8.9298e+07
+error after 1000 iterations : 8.85848e+10   convergence : 3.30971e+07
+error after 1500 iterations : 7.67228e+10   convergence : 1.72999e+07
+error after 2000 iterations : 6.97508e+10   convergence : 1.1375e+07
+error after 5000 iterations : 5.31663e+10   convergence : 2.5291e+06
+error after 10000 iterations : 4.70899e+10   convergence : 556967
+10000
+376835 12548.6 -687.889 47150.4 101961 -104.217 92676.9 -1540.09 69988.3 
+error for quadratic case when alpha = 0.0003125 is 326956
+
+quadratic case with alpha = 0.00015625 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.90773e+11   convergence : 1.52058e+08
+error after 200 iterations : 1.77062e+11   convergence : 1.25066e+08
+error after 500 iterations : 1.46632e+11   convergence : 8.24037e+07
+error after 1000 iterations : 1.16035e+11   convergence : 4.45766e+07
+error after 1500 iterations : 9.89411e+10   convergence : 2.59755e+07
+error after 2000 iterations : 8.85749e+10   convergence : 1.65334e+07
+error after 5000 iterations : 6.48983e+10   convergence : 4.14548e+06
+error after 10000 iterations : 5.31656e+10   convergence : 1.26427e+06
+10000
+292939 4943.66 10579.5 41024.9 76316 362.313 114153 -741.782 92646.1 
+error for quadratic case when alpha = 0.00015625 is 348269
+
+quadratic case with alpha = 7.8125e-05 ...
+error after 1 iterations : 2.09255e+11   convergence : 1.79769e+308
+error after 100 iterations : 1.98821e+11   convergence : 8.77326e+07
+error after 200 iterations : 1.90701e+11   convergence : 7.58861e+07
+error after 500 iterations : 1.71002e+11   convergence : 5.77835e+07
+error after 1000 iterations : 1.46597e+11   convergence : 4.116e+07
+error after 1500 iterations : 1.28975e+11   convergence : 3.00287e+07
+error after 2000 iterations : 1.16019e+11   convergence : 2.22701e+07
+error after 5000 iterations : 8.16885e+10   convergence : 5.75135e+06
+error after 10000 iterations : 6.4897e+10   convergence : 2.07237e+06
+10000
+206428 1232.92 16353.2 29870 56508.2 716.951 102223 587.762 117914 
+error for quadratic case when alpha = 7.8125e-05 is 367829
+
+quadratic case with alpha = 3.90625e-05 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.03416e+11   convergence : 4.99036e+07
+error after 200 iterations : 1.9878e+11   convergence : 4.38064e+07
+error after 500 iterations : 1.86983e+11   convergence : 3.58291e+07
+error after 1000 iterations : 1.70976e+11   convergence : 2.88751e+07
+error after 1500 iterations : 1.57751e+11   convergence : 2.42441e+07
+error after 2000 iterations : 1.4658e+11   convergence : 2.05697e+07
+error after 5000 iterations : 1.06322e+11   convergence : 8.41011e+06
+error after 10000 iterations : 8.16868e+10   convergence : 2.87519e+06
+10000
+134191 301.956 14880 19980.7 40436.3 1077.64 75287.9 2733.39 119432 
+error for quadratic case when alpha = 3.90625e-05 is 396561
+
+quadratic case with alpha = 1.95313e-05 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.06043e+11   convergence : 2.86289e+07
+error after 200 iterations : 2.03393e+11   convergence : 2.49164e+07
+error after 500 iterations : 1.96617e+11   convergence : 2.09797e+07
+error after 1000 iterations : 1.86967e+11   convergence : 1.79072e+07
+error after 1500 iterations : 1.78538e+11   convergence : 1.59258e+07
+error after 2000 iterations : 1.70963e+11   convergence : 1.44334e+07
+error after 5000 iterations : 1.37072e+11   convergence : 8.76557e+06
+error after 10000 iterations : 1.06319e+11   convergence : 4.20431e+06
+10000
+80483.7 176.363 10430.9 12389.4 26244.1 1514.56 48087.7 5594.5 92416.6 
+error for quadratic case when alpha = 1.95313e-05 is 451839
+
+quadratic case with alpha = 9.76563e-06 ...
+error after 1 iterations : 2.09256e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.07539e+11   convergence : 1.60512e+07
+error after 200 iterations : 2.0603e+11   convergence : 1.42942e+07
+error after 500 iterations : 2.02164e+11   convergence : 1.1927e+07
+error after 1000 iterations : 1.96607e+11   convergence : 1.04867e+07
+error after 1500 iterations : 1.91593e+11   convergence : 9.61628e+06
+error after 2000 iterations : 1.86958e+11   convergence : 8.95178e+06
+error after 5000 iterations : 1.64058e+11   convergence : 6.59762e+06
+error after 10000 iterations : 1.37069e+11   convergence : 4.38226e+06
+10000
+45000.4 154.617 6267.81 7209.67 15379.1 1905 27729.4 8051.51 58940.8 
+error for quadratic case when alpha = 9.76563e-06 is 524247
+
+quadratic case with alpha = 4.88281e-06 ...
+error after 1 iterations : 2.09257e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.08363e+11   convergence : 8.64603e+06
+error after 200 iterations : 2.07531e+11   convergence : 8.0164e+06
+error after 500 iterations : 2.05325e+11   convergence : 6.8361e+06
+error after 1000 iterations : 2.02158e+11   convergence : 5.96188e+06
+error after 1500 iterations : 1.99293e+11   convergence : 5.53435e+06
+error after 2000 iterations : 1.96603e+11   convergence : 5.24255e+06
+error after 5000 iterations : 1.82618e+11   convergence : 4.20673e+06
+error after 10000 iterations : 1.64055e+11   convergence : 3.29859e+06
+10000
+23996.9 137.194 3451.46 4041.33 8400.63 2176.22 15010.1 8723.92 33599.6 
+error for quadratic case when alpha = 4.88281e-06 is 584689
+
+cubic case with alpha = 2.5e-06 ...
+error after 1 iterations : 2.09254e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.07927e+11   convergence : 1.08613e+07
+error after 200 iterations : 2.06859e+11   convergence : 1.04975e+07
+error after 500 iterations : 2.03864e+11   convergence : 9.4923e+06
+error after 1000 iterations : 1.99486e+11   convergence : 8.07047e+06
+error after 1500 iterations : 1.95751e+11   convergence : 6.91322e+06
+error after 2000 iterations : 1.92538e+11   convergence : 5.97044e+06
+error after 5000 iterations : 1.79935e+11   convergence : 3.01004e+06
+error after 10000 iterations : 1.68688e+11   convergence : 1.81515e+06
+10000
+12570.5 6.09191 1498.86 1820.1 3275.92 6163.5 7684.5 10028 14631.7 -154.452 4941.15 -313.591 16160.5 
+error for cubic case when alpha = 2.5e-06 is 589282
+
+cubic case with alpha = 1.25e-06 ...
+error after 1 iterations : 2.09247e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.0847e+11   convergence : 5.52312e+06
+error after 200 iterations : 2.07922e+11   convergence : 5.42915e+06
+error after 500 iterations : 2.06334e+11   convergence : 5.15919e+06
+error after 1000 iterations : 2.0386e+11   convergence : 4.74489e+06
+error after 1500 iterations : 2.01583e+11   convergence : 4.37126e+06
+error after 2000 iterations : 1.99483e+11   convergence : 4.03424e+06
+error after 5000 iterations : 1.89751e+11   convergence : 2.6003e+06
+error after 10000 iterations : 1.79934e+11   convergence : 1.50487e+06
+10000
+6448.82 110.428 835 1032.44 1896.29 3960.11 4002.67 5371.37 8283.93 -85.726 2683.01 -151.45 12673.8 
+error for cubic case when alpha = 1.25e-06 is 615805
+
+cubic case with alpha = 6.25e-07 ...
+error after 1 iterations : 2.09244e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.08743e+11   convergence : 2.79698e+06
+error after 200 iterations : 2.08465e+11   convergence : 2.76103e+06
+error after 500 iterations : 2.07647e+11   convergence : 2.69098e+06
+error after 1000 iterations : 2.0633e+11   convergence : 2.57911e+06
+error after 1500 iterations : 2.05067e+11   convergence : 2.47289e+06
+error after 2000 iterations : 2.03856e+11   convergence : 2.37201e+06
+error after 5000 iterations : 1.97541e+11   convergence : 1.86479e+06
+error after 10000 iterations : 1.89749e+11   convergence : 1.29998e+06
+10000
+3273.81 93.6691 449.341 564.168 1049.85 2276.39 2051.94 2805.12 4505.7 -33.1501 1411.26 -60.9559 8162.23 
+error for cubic case when alpha = 6.25e-07 is 638286
+
+cubic case with alpha = 3.125e-07 ...
+error after 1 iterations : 2.09245e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.08884e+11   convergence : 1.46355e+06
+error after 200 iterations : 2.08742e+11   convergence : 1.39824e+06
+error after 500 iterations : 2.08327e+11   convergence : 1.37447e+06
+error after 1000 iterations : 2.07647e+11   convergence : 1.3454e+06
+error after 1500 iterations : 2.06981e+11   convergence : 1.31707e+06
+error after 2000 iterations : 2.0633e+11   convergence : 1.28947e+06
+error after 5000 iterations : 2.02694e+11   convergence : 1.13804e+06
+error after 10000 iterations : 1.97541e+11   convergence : 932345
+10000
+1650.59 58.1119 234.851 297.837 558.223 1225.83 1040.83 1438.14 2366.23 -0.29767 725.942 -12.2673 4666.35 
+error for cubic case when alpha = 3.125e-07 is 654910
+
+cubic case with alpha = 1.5625e-07 ...
+error after 1 iterations : 2.09247e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.0896e+11   convergence : 810338
+error after 200 iterations : 2.08884e+11   convergence : 731695
+error after 500 iterations : 2.08672e+11   convergence : 695543
+error after 1000 iterations : 2.08326e+11   convergence : 687226
+error after 1500 iterations : 2.07985e+11   convergence : 679910
+error after 2000 iterations : 2.07647e+11   convergence : 672690
+error after 5000 iterations : 2.05691e+11   convergence : 631278
+error after 10000 iterations : 2.02694e+11   convergence : 569012
+10000
+829.143 32.3678 119.857 153.475 288.625 637.052 524.643 729.784 1215.77 18.1306 368.428 13.1213 2499.51 
+error for cubic case when alpha = 1.5625e-07 is 665357
+
+cubic case with alpha = 7.8125e-08 ...
+error after 1 iterations : 2.09249e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.09003e+11   convergence : 554648
+error after 200 iterations : 2.08959e+11   convergence : 404234
+error after 500 iterations : 2.08847e+11   convergence : 358007
+error after 1000 iterations : 2.08671e+11   convergence : 347753
+error after 1500 iterations : 2.08498e+11   convergence : 345468
+error after 2000 iterations : 2.08326e+11   convergence : 343600
+error after 5000 iterations : 2.07311e+11   convergence : 332769
+error after 10000 iterations : 2.05691e+11   convergence : 315627
+10000
+415.382 17.021 60.9137 77.8906 147.339 326.099 263.66 368.671 616.769 27.8692 185.904 26.1094 1294.52 
+error for cubic case when alpha = 7.8125e-08 is 671256
+
+cubic case with alpha = 3.90625e-08 ...
+error after 1 iterations : 2.09253e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.09047e+11   convergence : 744810
+error after 200 iterations : 2.09004e+11   convergence : 276242
+error after 500 iterations : 2.0894e+11   convergence : 194097
+error after 1000 iterations : 2.08847e+11   convergence : 178875
+error after 1500 iterations : 2.08759e+11   convergence : 175089
+error after 2000 iterations : 2.08672e+11   convergence : 173872
+error after 5000 iterations : 2.08155e+11   convergence : 170884
+error after 10000 iterations : 2.07312e+11   convergence : 166386
+10000
+208.48 8.93281 30.6122 39.1755 73.9477 165.41 132.144 185.5 310.498 32.9024 93.5824 32.7081 658.989 
+error for cubic case when alpha = 3.90625e-08 is 674399
+
+cubic case with alpha = 1.95313e-08 ...
+error after 1 iterations : 2.09248e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.09103e+11   convergence : 865118
+error after 200 iterations : 2.09046e+11   convergence : 362914
+error after 500 iterations : 2.08991e+11   convergence : 116354
+error after 1000 iterations : 2.0894e+11   convergence : 97076.4
+error after 1500 iterations : 2.08893e+11   convergence : 91935.5
+error after 2000 iterations : 2.08847e+11   convergence : 89445.5
+error after 5000 iterations : 2.08585e+11   convergence : 86619.3
+error after 10000 iterations : 2.08155e+11   convergence : 85442.4
+10000
+104.263 5.0685 16.0388 20.1381 37.2394 84.2259 66.5824 93.9455 155.85 35.4456 47.0976 35.9871 332.523 
+error for cubic case when alpha = 1.95313e-08 is 676020
+
+cubic case with alpha = 9.76563e-09 ...
+error after 1 iterations : 2.09255e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.09162e+11   convergence : 723143
+error after 200 iterations : 2.09105e+11   convergence : 440816
+error after 500 iterations : 2.09032e+11   convergence : 130089
+error after 1000 iterations : 2.08991e+11   convergence : 58325.2
+error after 1500 iterations : 2.08965e+11   convergence : 50988.6
+error after 2000 iterations : 2.0894e+11   convergence : 48551
+error after 5000 iterations : 2.08803e+11   convergence : 44101.8
+error after 10000 iterations : 2.08585e+11   convergence : 43309.9
+10000
+52.2598 2.5648 8.37943 10.5059 19.5674 42.7004 33.8935 47.5191 78.3752 36.7465 24.1429 36.7447 167.102 
+error for cubic case when alpha = 9.76563e-09 is 676844
+
+cubic case with alpha = 4.88281e-09 ...
+error after 1 iterations : 2.09246e+11   convergence : 1.79769e+308
+error after 100 iterations : 2.09196e+11   convergence : 445924
+error after 200 iterations : 2.09157e+11   convergence : 345429
+error after 500 iterations : 2.09083e+11   convergence : 167404
+error after 1000 iterations : 2.09031e+11   convergence : 63556.7
+error after 1500 iterations : 2.09008e+11   convergence : 36693.8
+error after 2000 iterations : 2.08992e+11   convergence : 29231.3
+error after 5000 iterations : 2.08916e+11   convergence : 23569.3
+error after 10000 iterations : 2.08803e+11   convergence : 22059.6
+10000
+26.1278 2.00715 4.54893 5.00541 9.75129 22.7446 17.211 24.4011 39.494 37.3718 11.7802 32.3905 83.9792 
+error for cubic case when alpha = 4.88281e-09 is 677264
+
