@@ -3,6 +3,7 @@ from porter2stemmer import Porter2Stemmer
 from random import shuffle
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 ##### Stop words
 stoplist = []
@@ -32,6 +33,7 @@ for row in wosw:
         if item != 'ham' and item != 'spam':
         	tokens.append(item)
 tokens = sorted(set(tokens))
+tokens = tokens[:2000]
 #print tokens
 
 #####  One hot encoding
@@ -45,7 +47,7 @@ for row in wosw:
 		else:
 			sub_enc.append(1)
 	if row[0] == 'ham' :
-		sub_enc.append(-1)
+		sub_enc.append(0)
 	else:
 		sub_enc.append(1)
 	encoding.append(sub_enc)
@@ -58,20 +60,14 @@ test = encoding[len_part:]
 
 ##### Forward propagation at a single neuron
 def forward_propagte(weights, inputs):
-	if len(weights)!=len(inputs):
-		print "error"
-		raise Exception
-	convolution = weights[-1]
-	for i in range(len(weights)-1):
-		convolution += weights[i] * inputs[i]
-	return tanh_activate(convolution)
+	return sigmoid_activate(np.dot(inputs,weights))
  
 ##### Neuron activation function
 def sigmoid_activate(convolution):
-	return 1.0 / (1.0 + exp(-convolution))
+	return 1/(1+np.exp(-convolution))
 
 def tanh_activate(convolution):
-	return math.tanh(convolution)
+	return np.tanh(convolution)
 
 ##### Derivative function
 def sigmoid_derivative(output):
@@ -80,94 +76,159 @@ def sigmoid_derivative(output):
 def tanh_derivative(output):
 	return  (1.0 - (output ** 2))
 
-W1 = np.random.randn(len(tokens)+1, 100).astype(np.float32) * np.sqrt(2.0/(len(tokens)+1))
-W2 = np.random.randn(101,50).astype(np.float32) * np.sqrt(2.0/(101))
-W3 = np.random.randn(51,2).astype(np.float32) * np.sqrt(2.0/(51))
+def in_sample(W1,W2,W3):
+	test_error = 0.0
+	misclass = 0
+
+	testx = np.asarray(training)
+	instance1 = np.asarray(training)
+	test1 = np.ones(instance1.shape[0],dtype=int)
+	instance1[:, -1] = test1
+	x1 = forward_propagte(W1,instance1)
+	test1 = np.ones((x1.shape[0],1),dtype=int)
+	x1 = np.append(x1,test1,axis = 1)
+	x2 = forward_propagte(W2,x1)
+	test1 = np.ones((x2.shape[0],1),dtype=int)
+	x2 = np.append(x2, test1, axis=1)
+	x3 = np.dot(x2,W3)
+	z_exp = np.exp(x3)
+	sum_z_exp = np.sum(z_exp,axis = 1,keepdims = True)
+	softmax = z_exp/sum_z_exp
+	testxx = testx[:,-1]
+	x = np.ones((softmax.shape[0],1),dtype=int)
+
+	for count in range(0,softmax.shape[0]): 
+		if softmax[count][0] > 0.5:
+			x[count][0] = 0
+		else:
+			x[count][0] = 1
+		if x[count][0] != testxx[count] :
+	 		misclass = misclass + 1
+	 	#print x[count][0],testxx[count] 
+		test_error = test_error + 0.5 * ((x[count][0] - testxx[count]) ** 2)
+	return [misclass,test_error] 
+
+def out_of_sample(W1,W2,W3,final):
+	test_error = 0.0
+	misclass = 0
+
+	testx = np.asarray(test)
+	instance1 = np.asarray(test)
+	test1 = np.ones(instance1.shape[0],dtype=int)
+	instance1[:, -1] = test1
+	x1 = forward_propagte(W1,instance1)
+	test1 = np.ones((x1.shape[0],1),dtype=int)
+	x1 = np.append(x1,test1,axis = 1)
+	x2 = forward_propagte(W2,x1)
+	test1 = np.ones((x2.shape[0],1),dtype=int)
+	x2 = np.append(x2, test1, axis=1)
+	x3 = np.dot(x2,W3)
+	z_exp = np.exp(x3)
+	sum_z_exp = np.sum(z_exp,axis = 1,keepdims = True)
+	softmax = z_exp/sum_z_exp
+	testxx = testx[:,-1]
+	x = np.ones((softmax.shape[0],1),dtype=int)
+
+	for count in range(0,softmax.shape[0]): 
+		if softmax[count][0] > 0.5:
+			x[count][0] = 0
+		else:
+			x[count][0] = 1
+		if x[count][0] != testxx[count] :
+	 		misclass = misclass + 1
+	 	if final == 1:
+	 		print x[count][0],testxx[count] 
+		test_error = test_error + 0.5 * ((x[count][0] - testxx[count]) ** 2)
+	return [misclass,test_error] 
+
+W1 = np.random.normal(0,1,(len(tokens)+1, 100)).astype(np.float32) * np.sqrt(2.0/(len(tokens)+1))
+W2 = np.random.normal(0,1,(101,50)).astype(np.float32) * np.sqrt(2.0/(101))
+W3 = np.random.normal(0,1,(51,2)).astype(np.float32) * np.sqrt(2.0/(51))
 LR = 0.1
-e = 0
-for instance in training[:50]:
-	x1 = []
-	x2 = []
-	x3 = []
-	# print type(W1)
-	instance1 = instance[:len(instance)-1]
-	instance1.append(1)
-	# print W1.shape
-	for i in range(0,100):
-		Wtemp = [W1[j][i] for j in range(W1.shape[0])]
-		x1.append(forward_propagte(Wtemp,instance1))
-	x1.append(1)
+etr = []
+ete = []
+y = []
+i = 0
+e1 = 0
+cummmisclassout = 0
+cummmisclassin = 0
+cummerrorout = 0
+cummerrorin = 0
 
-	for i in range(0,50):
-		Wtemp = [W2[j][i] for j in range(W2.shape[0])]
-		x2.append(forward_propagte(Wtemp,x1))
-	x2.append(1)
+print "Training started"
+epochs = 1
+while True:
+	print "epoch ",epochs
+	shuffle(training)
+	for instance in training:
+		i = i + 1
+		instance1 = instance[:len(instance)-1]
+		instance1.append(1)
+		instance1 = np.array([instance1])
+		#print instance1.shape
+		#print W1.shape
+		x1 = forward_propagte(W1,instance1)
+		x1 = np.append(x1, 1)
+		x1 = np.array([x1])
 
-	for i in range(0,2):
-		Wtemp = [W3[j][i] for j in range(W3.shape[0])]
-		x3.append(forward_propagte(Wtemp,x2))
+		#print W2.shape
+		x2 = forward_propagte(W2,x1)
+		x2 = np.append(x2, 1)
+		x2 = np.array([x2])
 
-	z_exp = [math.exp(i) for i in x3]
-	sum_z_exp = sum(z_exp)
-	softmax = [round(i / sum_z_exp, 3) for i in z_exp]
+		x3 = np.dot(x2,W3)
+		z_exp = np.exp(x3)
+		sum_z_exp = z_exp[0][0] + z_exp[0][1]
+		softmax = z_exp/sum_z_exp
 
-	h = softmax.index(max(softmax))
-	e = 0.5 * ((h - instance[-1]) ** 2)
-	print h,instance[-1]
-	dell = (h - instance[-1]) * tanh_derivative(h)
-	del3 = []
-	if h == 0:
-		del3.append(softmax[0] * (1 - softmax[1]))
-		del3.append(-softmax[0] * softmax[1])
-	else:
-		del3.append( softmax[1] * (1 - softmax[0]))
-		del3.append( -softmax[0] * softmax[1])
+		if instance[-1] == 0:
+		    actual = [1,0]
+		else:
+		    actual = [0,1]
+		l1 = 0.5 * ((softmax[0][0] - actual[0]) ** 2)
+		l2 = 0.5 * ((softmax[0][1] - actual[1]) ** 2)
 
-	del3 = [(del3[i] * dell) for i in range(len(del3))]
- 
-	temp3 = sum([W3[i][j] * del3[j] for i in range(W3.shape[0]) for j in range(W3.shape[1]) ])
-	del2 = [(((1 - x2[i]) ** 2) * temp3) for i in range(len(x2))]
-	temp2 = sum([W2[i][j] * del2[j] for i in range(W2.shape[0]) for j in range(W2.shape[1]) ])
-	del1 = [(((1 - x1[i]) ** 2) * temp2) for i in range(len(x1))]
+		del3dash = []
+		dell1 = ((softmax[0][0] - actual[0]) - (softmax[0][1] - actual[1])) * softmax[0][0] * softmax[0][1]
+		del3dash.append(dell1)
+		del3dash.append(-dell1)
+		del3 = np.asarray([del3dash])
 
-	W3 = [[float(W3[i][j] - LR * x2[i] * del3[j]) for j in range(W3.shape[1])] for i in range(W3.shape[0])]
-	W2 = [[float(W2[i][j] - LR * x1[i] * del2[j]) for j in range(W2.shape[1])] for i in range(W2.shape[0])]
-	W1 = [[float(W1[i][j] - LR * instance1[i] * del1[j]) for j in range(W1.shape[1])] for i in range(W1.shape[0])]
-	W1 = np.asarray([np.asarray(xi) for xi in W1])
-	W2 = np.asarray([np.asarray(xi) for xi in W2])
-	W3 = np.asarray([np.asarray(xi) for xi in W3])
-	# print "W1: ",W3.shape
+		temp3 = np.dot(del3,W3.T)
+		del2 = np.dot(np.dot(x2,(1-x2).T),temp3)
 
-print "Training done"
-print e
+		temp2 = np.dot(W2,del2[:,0:del2.shape[1]-1].T)
+		del1 =  np.dot(np.dot(x1,(1-x1).T),temp2.T)
 
-test_error = 0.0
-for instance in test[:20]:
-	x1 = []
-	x2 = []
-	x3 = []
-	instance1 = instance[:len(instance)-1]
-	instance1.append(1)
-	for i in range(0,100):
-		Wtemp = [W1[j][i] for j in range(W1.shape[0])]
-		x1.append(forward_propagte(Wtemp,instance1))
-	x1.append(1)
-	for i in range(0,50):
-		Wtemp = [W2[j][i] for j in range(W2.shape[0])]
-		x2.append(forward_propagte(Wtemp,x1))
-	x2.append(1)
-	for i in range(0,2):
-		Wtemp = [W3[j][i] for j in range(W3.shape[0])]
-		x3.append(forward_propagte(Wtemp,x2))
+		W3 = W3 - LR * del3 * x2.T
+		W2 = W2 - LR * np.dot(x1.T,del2[:,0:del2.shape[1]-1])
+		W1 = W1 - LR * np.dot(instance1.T,del1[:,0:del1.shape[1]-1])
+	print "here"
+	[misclass,test_error] = out_of_sample(W1,W2,W3,0)
+	print "out sample error ", test_error , " out sample misclass ", misclass,"/",len(test)
+	ete.append(test_error)
+	[misclass,test_error] = in_sample(W1,W2,W3)
+	print "in sample error ", test_error , " in sample misclass ", misclass,"/",len(training)
+	etr.append(test_error)
+	y.append(epochs)
 
-	z_exp = [math.exp(i) for i in x3]
-	sum_z_exp = sum(z_exp)
-	softmax = [round(i / sum_z_exp, 3) for i in z_exp]
+	if test_error < 20:
+		break
+	epochs = epochs +1
 
-	h = softmax.index(max(softmax))
-	e = 0.5 * ((h - instance[-1]) ** 2)
+print "training error"
+print len(etr)
+print "test error"
+print len(ete)
+print "epochs"
+print len(y)
 
-	print h,instance[-1]
-	test_error += e
-print "Test done"
-print test_error
+out_of_sample(W1,W2,W3,1)
+
+plt.plot(y,etr,'-',label='Insample Error')
+plt.plot(y,ete,'-',label='Outsample Error')
+plt.xlabel("Epochs")
+plt.ylabel("Error")
+plt.title("Error vs Epochs in part2")
+plt.legend()
+plt.show()
